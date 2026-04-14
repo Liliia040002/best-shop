@@ -1,0 +1,10 @@
+@use '../abstracts/variables' as *;
+
+@mixin header__menu {
+  font: {
+    family: Montserrat, sans-serif;
+    size: 18px;
+    weight: bold;
+  }
+  color: $heading-color;
+}

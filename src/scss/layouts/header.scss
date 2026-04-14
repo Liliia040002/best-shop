@@ -1,0 +1,77 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+header {
+   
+    padding: 20px 0;
+
+    .header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__media {
+        display: flex;
+        gap: 20px;
+    }
+
+    .header__logo {
+        height: 37px;
+    }
+
+    .header__acount {
+        display: flex;
+        gap: 20px;
+
+        img {
+            width: 21px;
+            height: 21px;
+        }
+    }
+}
+
+hr {
+    width: 90%;
+    margin: 20px auto;
+    border: 1px solid $hr-color;
+}
+
+nav {
+
+    @include header__menu;
+
+     .menu__list {
+         display: flex;
+         justify-content: center ;
+         align-items: center;
+         gap: 20px;
+
+         .menu__item {
+             list-style-type: none;
+         }
+     }
+    
+    ul {
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        gap: 20px;
+
+        .menu__item {
+            list-style-type: none;
+
+            a {
+                text-decoration: none;
+                color: $heading-color;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                    &:active {
+                        color: $primary-color;
+            }
+        }
+    }
+}
+}
+}

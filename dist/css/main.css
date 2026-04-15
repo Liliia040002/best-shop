@@ -188,6 +188,302 @@ footer .footer__copyright {
   color: #858585;
 }
 
+.section__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.section__heading .section__title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 0px;
+}
+.section__heading .section__description {
+  font-size: 17px;
+  font-weight: normal;
+  color: #504E4A;
+  margin-top: 5px;
+}
+
+.testimonials {
+  padding: 50px 0;
+  margin-bottom: 50px;
+}
+.testimonials .testimonials__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.testimonials .testimonials__list .testimonial {
+  width: 30%;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 20px 80px #dadde3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.testimonials .testimonials__list .testimonial p {
+  font-size: 17px;
+  font-weight: 400;
+}
+.testimonials .testimonials__list .testimonial span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #B92770;
+}
+
+.banner {
+  margin-bottom: 100px;
+}
+.banner .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/banner.png") no-repeat center;
+  background-size: cover;
+  padding: 50px;
+}
+.banner .container .banner__offer .banner__discount {
+  font-size: 223px;
+  font-weight: bold;
+  line-height: 90%;
+  margin: 0;
+  color: #fff;
+}
+.banner .container .text {
+  font-size: 20px;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.banner .container h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.banner .container button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #B92770;
+  border: none;
+  padding: 18px 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.products {
+  margin-bottom: 100px;
+}
+.products .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.products .container .products__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.products .container .products__list .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.products .container .products__list .product img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+.products .container .products__list .product h3 {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000000;
+}
+.products .container .products__list .product span {
+  font-size: 19px;
+  font-weight: bold;
+  color: #504E4A;
+}
+.products .container .products__list .product button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #B92770;
+  border: none;
+  padding: 18px 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 17px;
+}
+
+.suitcases {
+  margin: 0 0 100px 0;
+}
+.suitcases .products__items {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.suitcases .products__items .item__heading {
+  font-size: 19px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.suitcases .products__items .text {
+  font-size: 19px;
+  font-weight: normal;
+  color: #fff;
+}
+.suitcases .products__items .item {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  padding: 30px;
+}
+.suitcases .products__items .item:nth-child(1) {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-1.png") no-repeat center;
+}
+.suitcases .products__items .item:nth-child(2) {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-2.png") no-repeat center;
+}
+.suitcases .products__items .item:nth-child(3) {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-3.png") no-repeat center;
+}
+.suitcases .products__items .item:nth-child(4) {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live.png") no-repeat center;
+}
+
+.hero .hero__banner {
+  height: 100vh;
+  background-color: #E7E8E9;
+}
+.hero .hero__banner .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.hero .hero__banner .container h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.hero .hero__banner .container .text {
+  font-size: 17px;
+  font-weight: normal;
+  color: #504E4A;
+  margin: 0;
+}
+.hero .hero__banner .container button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #B92770;
+  border: none;
+  padding: 18px 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+.hero .hero__welcoming {
+  transform: translateY(-70px);
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  box-shadow: 0px 20px 80px #cacccf;
+}
+.hero .hero__welcoming .welcoming__card {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  padding: 50px;
+  width: 50%;
+}
+.hero .hero__welcoming .welcoming__card .welcoming__card-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.hero .hero__welcoming .welcoming__card .welcoming__card-author img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.hero .hero__welcoming .welcoming__card .welcoming__card-author h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin: 10px 0 0 0;
+}
+.hero .hero__welcoming .welcoming__card .welcoming__card-author .text {
+  font-size: 17px;
+  font-weight: normal;
+  color: #504E4A;
+  margin: 0;
+}
+.hero .hero__welcoming .welcoming__card h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 10px;
+  margin: 20px 0 30px 0;
+}
+.hero .hero__welcoming .welcoming__card .text {
+  font-size: 17px;
+  font-weight: normal;
+  color: #504E4A;
+  margin: 0;
+}
+.hero .hero__welcoming .welcoming__card-discount {
+  width: 50%;
+  padding: 100px 50px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcases-main-banner.png") no-repeat center;
+}
+.hero .hero__welcoming .welcoming__card-discount .text {
+  font-size: 20px;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero .hero__welcoming .welcoming__card-discount h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.hero .hero__welcoming .welcoming__card-discount button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #B92770;
+  border: none;
+  padding: 18px 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

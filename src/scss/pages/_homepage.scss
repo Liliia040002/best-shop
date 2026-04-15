@@ -1,0 +1,318 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+  .section__heading {
+    @include section__heading;
+}
+
+.testimonials {
+    padding: 50px 0;
+    margin-bottom: 50px;
+  
+
+.testimonials__list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    .testimonial {
+        width: 30%;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 20px 80px #dadde3;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        p {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        span {
+            font-size: 17px;
+            font-weight: 700;
+            color: $primary-color;
+        }
+
+    }
+
+}
+}
+
+.banner {
+    margin-bottom: 100px;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 50px;
+        height: 400px;
+        background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/banner.png') no-repeat center;
+        background-size: cover;
+        padding: 50px;
+
+        .banner__offer {
+
+            .banner__discount {
+                font: {
+                    size: 223px;
+                    weight: bold;
+            }
+            line-height: 90%;
+            margin: 0;
+            color: #fff;
+            }
+        }
+
+         .text {
+                font: {
+                    size: 20px;
+                    weight: normal;
+                }
+                color: #fff;
+                margin-bottom: 20px;
+            }
+
+        h3 {
+            font: {
+                size: 40px;
+                weight: 700;
+            }
+            color: #fff;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        button {
+            @include button;
+        }
+    }
+}
+
+.products {
+        margin-bottom: 100px;
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+              .products__list {
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
+
+        .product {
+            @include product-card;
+        }
+    }
+
+        }
+  
+}
+
+.suitcases {
+    margin: 0 0 100px 0;
+    .products__items {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        .item__heading {
+            font: {
+                size: 19px;
+                weight: bold;
+            }
+            color: #fff;
+             margin-bottom: 10px;
+        }
+
+        .text {
+            font: {
+                size: 19px;
+                weight: normal;
+            }
+            color: #fff;
+        
+        }
+
+        .item {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            padding: 30px;
+        }
+
+        .item:nth-child(1) {
+             background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/suitcase-real-live-1.png') no-repeat center;
+        }
+
+        .item:nth-child(2) {
+            background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/suitcase-real-live-2.png') no-repeat center;
+        }
+
+        .item:nth-child(3) {
+             background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/suitcase-real-live-3.png') no-repeat center;
+        }
+
+        .item:nth-child(4) {
+             background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/suitcase-real-live.png') no-repeat center;
+        }
+
+      
+    }
+}
+
+.hero {
+    .hero__banner {
+        height: 100vh;
+        background-color: #E7E8E9;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            h1 {
+                font: {
+                    size: 50px;
+                    weight: bold;
+                }
+                color: $heading-color;
+                margin-bottom: 10px;
+            }
+
+            .text {
+                font: {
+                    size: 17px;
+                    weight: normal;
+                }
+                color: $descriptions-color;
+                margin: 0;
+            }
+
+            button {
+                @include button;
+                margin-top: 30px;
+        }
+    }
+
+}
+   .hero__welcoming {
+    transform: translateY(-70px);
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    box-shadow: 0px 20px 80px #cacccf;
+
+    .welcoming__card {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+        padding: 50px;
+        width: 50%;
+
+        .welcoming__card-author{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            h4 {
+                font: {
+                    size: 20px;
+                    weight: bold;
+                }
+                color: $heading-color;
+                margin: 10px 0 0 0;
+            }
+
+            .text {
+                font: {
+                    size: 17px;
+                    weight: normal;
+                }
+                color: $descriptions-color;
+                margin: 0;
+            }
+
+        }
+
+        h3 {
+            font: {
+                size: 40px;
+                weight: 700;
+            }
+            color: $heading-color;
+            margin-bottom: 10px;
+            margin: 20px 0 30px 0;
+        }
+
+        .text {
+            font: {
+                size: 17px;
+                weight: normal;
+            }
+            color: $descriptions-color;
+            margin: 0;
+            
+        }
+    }
+
+     .welcoming__card-discount {
+        width: 50%;
+        padding: 100px 50px;
+         background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/homepage/suitcases-main-banner.png') no-repeat center;
+                 .text {
+                font: {
+                    size: 20px;
+                    weight: normal;
+                }
+                color: #fff;
+                margin-bottom: 20px;
+            }
+
+        h3 {
+            font: {
+                size: 40px;
+                weight: 700;
+            }
+            color: #fff;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        button {
+            @include button;
+        }
+    }
+
+   }
+
+}

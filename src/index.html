@@ -44,17 +44,20 @@
 <main>
     <section class="hero">
         <div class="hero__banner">
-            <div>
-                <h1>Smart Styles for Every Destination</h1>
-                <p class="text">Phasellus risus turpis, pretium sit amet magna non, molestie ultricies enim. Nullam pulvinar felis at metus.</p>
-                <button class="hero__button">View All Items</button>
-            </div>
-            <img src="" alt="">
-        </div>
-        <div class="hero__welcoming">
-            <div>
+            <div class="container">
                 <div>
-                    <img src="" alt="">
+                    <h1>Smart Styles for Every Destination</h1>
+                    <p class="text">Phasellus risus turpis, pretium sit amet magna non, molestie ultricies enim. Nullam pulvinar felis at metus.</p>
+                    <button class="hero__button">View All Items</button>
+                </div>
+                <img src="../src/img/homepage/header-image.png" alt="Header Image">
+            </div>
+        </div>
+        <div class="container">
+        <div class="hero__welcoming">
+            <div class="welcoming__card">
+                <div class="welcoming__card-author">
+                    <img src="../src/img/homepage/CMOimage.png" alt="Lillian Bennett">
                     <div>
                         <h4>Lillian Bennett</h4>
                         <p class="text">Chief Marketing Officer</p>
@@ -62,18 +65,23 @@
                 </div>
                 <h3>Aliquam Faucibus  Odionecom.</h3>
                 <p class="text">Duis vestibulum elit vel neque pharetra vulputate. Quisque scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin molestie accumsan nulla sit.</p>
+                <br>
                 <p class="text">Duis vestibulum elit vel neque pharetra vulputate.</p>
             </div>
-            <div>
+            <div class="welcoming__card-discount">
                 <h3>25 % Discount</h3>
                 <p class="text">Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate. </p>
                 <button class="hero__button">Get Discount</button>
             </div>
         </div>
+        </div>
     </section>
     <section class="suitcases">
-            <h2 class="section__heading">Travel suitcases</h2>
-        <p class="description">Duis vestibulum elit vel neque pharetra</p>
+        <div class="container">
+            <div class="section__heading">
+                <h2 class="section__title">Travel suitcases</h2>
+                <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+            </div>
             <div class="products__items">
                 <div class="item">
                     <p class="item__heading">Duis vestibulum elit vel neque.</p>
@@ -92,39 +100,45 @@
                   <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>    
             </div>
+        </div>
     </section>
     <section class="products products--selected">
-            <h2 class="section__heading">Selected Products</h2>
-        <p class="description">Duis vestibulum elit vel neque pharetra</p>
-            <div class="products__list">
-                <div class="product">
-                    <img src="" alt="">
-                    <h3>Product Name</h3>
-                    <span>$99.99</span>
-                    <button>View Product</button>
+      <div class="container">
+         <div class="section__heading">
+                    <h2 class="section__title">Selected Products</h2>
+                    <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
                 </div>
-                <div class="product">
-                    <img src="" alt="">
-                    <h3>Product Name</h3>
-                    <span>$99.99</span>
-                    <button>View Product</button>
+                <div class="products__list">
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-red.png" alt="suitcase-red">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-blue.png" alt="suitcase-blue">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-pink.png" alt="suitcase-pink">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-beige.png" alt="suitcase-beige">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>    
                 </div>
-                <div class="product">
-                    <img src="" alt="">
-                    <h3>Product Name</h3>
-                    <span>$99.99</span>
-                    <button>View Product</button>
-                </div>
-                <div class="product">
-                    <img src="" alt="">
-                    <h3>Product Name</h3>
-                    <span>$99.99</span>
-                    <button>View Product</button>
-                </div>    
-            </div>
+      </div>
     </section>
     <section class="banner">
-        <div class="banner__offer">
+     <div class="container">
+           <div class="banner__offer">
             <p class="banner__discount">50%</p>
             <p class="text">Curabitur vulputate arcu odio, ac facilisis diam.</p>
         </div>
@@ -133,31 +147,35 @@
             <p class="text">Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate. </p>
             <button class="banner__button">Get Offer Today</button>
         </div>
+     </div>
     </section>
     <section class="products products--new">
-         <h2 class="section__heading">New Products Arrival</h2>
-        <p class="description">Duis vestibulum elit vel neque pharetra</p>
+          <div class="container">
+          <div class="section__heading">
+            <h2 class="section__title">New Products Arrival</h2>
+            <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+        </div>
             <div class="products__list">
                 <div class="product">
-                    <img src="" alt="">
+                    <img src="../src/img/homepage/suitcase-sky.png" alt="suitcase-sky">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="" alt="">
+                    <img src="../src/img/homepage/suitcase-dark-blue.png" alt="suitcase-dark-blue">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="" alt="">
+                    <img src="../src/img/homepage/suitcase-hand-grey.png" alt="suitcase-hand-grey">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="" alt="">
+                    <img src="../src/img/homepage/suitcase-small-yellow.png" alt="suitcase-small-yellow">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
@@ -165,31 +183,35 @@
             </div>
     </section>
     <section class="testimonials">
-        <h2 class="section__heading">Our Grateful Customers</h2>
-        <p class="description">Duis vestibulum elit vel neque pharetra</p>
+      <div class="container">
+          <div class="section__heading">
+            <h2 class="section__title">Our Grateful Customers</h2>
+            <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+        </div>
             <div class="testimonials__list">
                 <div class="testimonial">
-                    <img src="" alt="">
+                    <img src="/src/img/homepage/customer-1.png" alt="Ethan Wade">
                     <p>
                        Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut mperdiet et leo in vulputate. 
                     </p>
                     <span>Ethan Wade, New York</span>
                 </div>
                 <div class="testimonial">
-                    <img src="" alt="">
+                    <img src="/src/img/homepage/customer-2.png" alt="Jane Reyes">
                     <p>
                         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                     </p>
                     <span>Jane Reyes, California</span>
                 </div>
                 <div class="testimonial">
-                    <img src="" alt="">
+                    <img src="/src/img/homepage/customer-3.png" alt="Erica Banks">
                     <p>
                         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
                     </p>
                     <span>Erica Banks, Miami</span>
                 </div>
             </div>
+      </div>
     </section>
 </main>
 

@@ -165,5 +165,58 @@ footer {
 
 }
 
+@media (max-width: 768px) {
+
+ 
+
+    .footer__benefits .container {
+        align-items: center;
+        
+    }
+    .footer__contacts {
+
+         .container {
+       
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+
+        .about {
+            grid-column: 1 / 2;
+        }
+
+        .links {
+            grid-column: 2 / 3;
+        }   
+
+        .achievements {
+            grid-column: 3 / 4;
+        }
+
+        .shipping {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+        }
+
+        .contact-us {
+            grid-column: 1 / 4;
+            grid-row: 3 / 4;
+        
+        }
+
+
+        .contacts {
+        
+            grid-column: 1 / 4;
+            grid-row: 4 / 5;
+
+
+    }
+         }
+   
+}
+
+}
+
 }
 

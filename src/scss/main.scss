@@ -23,7 +23,23 @@
 }
 
 * {
+         box-sizing: border-box;
          font: {
             family: Montserrat, sans-serif;
+              
         }
+        outline: 1px solid red;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
 }

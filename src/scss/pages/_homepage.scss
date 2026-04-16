@@ -316,3 +316,102 @@
    }
 
 }
+
+
+@media (max-width: 1024px) {
+    .hero__banner {
+        img {
+            width: 60%;
+        }
+
+     
+    }
+
+}
+
+@media (max-width: 768px) {
+    
+    .hero {
+        .hero__banner {
+            height: 600px;
+            .container {
+                flex-direction: column;
+                justify-content: flex-start;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    h1 {
+                        font-size: 40px;
+                    }
+                    .text {
+                        font-size: 16px;
+                    }
+                    button {
+                        font-size: 16px;
+                        margin-top: 20px;
+                    }
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+
+                }
+            }
+        }
+        .container {
+            .hero__welcoming {
+                flex-direction: column;
+
+                .welcoming__card {
+                    width: 100%;
+                }
+                .welcoming__card-discount {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+
+
+    .suitcases {
+        .products__items {
+            flex-direction: column;
+            align-items: center;
+
+            .item {
+                width: 50%;
+               
+                background-size: cover;
+
+            }
+         }
+    }
+
+
+    .products__list {
+        flex-wrap: wrap;
+    }
+    .banner  {
+        .container {
+            height: 300px;
+            .banner__offer {
+                .banner__discount {
+                    font-size: 100px;
+                }
+            }
+            .text {
+                font-size: 14px;
+            }
+
+            h3 {
+                font-size: 30px;
+                margin-bottom: 5px;
+                
+            }
+        }   
+    }
+}

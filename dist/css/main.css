@@ -187,6 +187,36 @@ footer .footer__copyright {
   font-size: 14px;
   color: #858585;
 }
+@media (max-width: 768px) {
+  footer .footer__benefits .container {
+    align-items: center;
+  }
+  footer .footer__contacts .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  footer .footer__contacts .container .about {
+    grid-column: 1/2;
+  }
+  footer .footer__contacts .container .links {
+    grid-column: 2/3;
+  }
+  footer .footer__contacts .container .achievements {
+    grid-column: 3/4;
+  }
+  footer .footer__contacts .container .shipping {
+    grid-column: 1/4;
+    grid-row: 2/3;
+  }
+  footer .footer__contacts .container .contact-us {
+    grid-column: 1/4;
+    grid-row: 3/4;
+  }
+  footer .footer__contacts .container .contacts {
+    grid-column: 1/4;
+    grid-row: 4/5;
+  }
+}
 
 .section__heading {
   display: flex;
@@ -484,13 +514,94 @@ footer .footer__copyright {
   transition: background-color 0.3s ease;
 }
 
+@media (max-width: 1024px) {
+  .hero__banner img {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  .hero .hero__banner {
+    height: 600px;
+  }
+  .hero .hero__banner .container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .hero .hero__banner .container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero .hero__banner .container div h1 {
+    font-size: 40px;
+  }
+  .hero .hero__banner .container div .text {
+    font-size: 16px;
+  }
+  .hero .hero__banner .container div button {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .hero .hero__banner .container img {
+    width: 100%;
+    height: auto;
+  }
+  .hero .container .hero__welcoming {
+    flex-direction: column;
+  }
+  .hero .container .hero__welcoming .welcoming__card {
+    width: 100%;
+  }
+  .hero .container .hero__welcoming .welcoming__card-discount {
+    width: 100%;
+  }
+  .suitcases .products__items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .suitcases .products__items .item {
+    width: 50%;
+    background-size: cover;
+  }
+  .products__list {
+    flex-wrap: wrap;
+  }
+  .banner .container {
+    height: 300px;
+  }
+  .banner .container .banner__offer .banner__discount {
+    font-size: 100px;
+  }
+  .banner .container .text {
+    font-size: 14px;
+  }
+  .banner .container h3 {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
 * {
+  box-sizing: border-box;
   font-family: Montserrat, sans-serif;
+  outline: 1px solid red;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

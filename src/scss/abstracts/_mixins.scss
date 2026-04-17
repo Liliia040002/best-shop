@@ -92,3 +92,20 @@
     font-size: 17px;
   }
 }
+
+@mixin hero-banner {
+ 
+        
+        padding: 50px 50px;
+
+        .section__heading { 
+            .section__title {
+            color: #fff;
+        }
+        .section__description {
+            color: #fff;
+        }
+    }
+
+
+}

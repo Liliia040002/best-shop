@@ -165,7 +165,7 @@ footer {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
  
 
@@ -209,6 +209,16 @@ footer {
         
             grid-column: 1 / 4;
             grid-row: 4 / 5;
+            grid-template-columns: repeat(4, 1fr);
+
+            li {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            li::before {
+                margin-bottom: 10px;
+            }
 
 
     }
@@ -218,5 +228,5 @@ footer {
 
 }
 
-}
 
+}

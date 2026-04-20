@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-a {
+.button {
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
@@ -7,6 +7,7 @@ a {
   background-color: #B92770;
   border: none;
   padding: 18px 23px;
+  margin-top: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -53,24 +54,16 @@ header nav .menu__list {
 }
 header nav .menu__list .menu__item {
   list-style-type: none;
+  margin-top: 20px;
 }
-header nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-header nav ul .menu__item {
-  list-style-type: none;
-}
-header nav ul .menu__item a {
+header nav .menu__list .menu__item a {
   text-decoration: none;
   color: #000000;
 }
-header nav ul .menu__item a:hover {
+header nav .menu__list .menu__item a:hover {
   color: #B92770;
 }
-header nav ul .menu__item a:active {
+header nav .menu__list .menu__item a:active {
   color: #B92770;
 }
 
@@ -199,7 +192,7 @@ footer .footer__copyright {
   font-size: 14px;
   color: #858585;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   footer .footer__benefits .container {
     align-items: center;
   }
@@ -227,6 +220,14 @@ footer .footer__copyright {
   footer .footer__contacts .container .contacts {
     grid-column: 1/4;
     grid-row: 4/5;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  footer .footer__contacts .container .contacts li {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  footer .footer__contacts .container .contacts li::before {
+    margin-bottom: 10px;
   }
 }
 
@@ -469,6 +470,7 @@ footer .footer__copyright {
   padding: 18px 23px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
 }
 
 .products {
@@ -515,6 +517,7 @@ footer .footer__copyright {
   padding: 18px 23px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
   margin-top: 15px;
   padding: 10px 25px;
   font-size: 17px;
@@ -583,7 +586,7 @@ footer .footer__copyright {
   color: #504E4A;
   margin: 0;
 }
-.hero .hero__banner .container button {
+.hero .hero__banner .container .button {
   font-size: 18px;
   font-weight: bold;
   color: #fff;
@@ -592,6 +595,7 @@ footer .footer__copyright {
   padding: 18px 23px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
   margin-top: 30px;
 }
 .hero .hero__welcoming {
@@ -671,6 +675,7 @@ footer .footer__copyright {
   padding: 18px 23px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
 }
 
 @media (max-width: 1024px) {
@@ -754,17 +759,17 @@ footer .footer__copyright {
   background-size: cover;
 }
 
-.contacts {
+.info {
   margin: 100px 0;
 }
-.contacts .container .contacts-list {
+.info .container .contacts-list {
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
-.contacts .container .contacts-list li {
+.info .container .contacts-list li {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -773,10 +778,10 @@ footer .footer__copyright {
   align-items: center;
   text-align: center;
 }
-.contacts .container .contacts-list li .title {
+.info .container .contacts-list li .title {
   margin-bottom: 0;
 }
-.contacts .container .contacts-list li::before {
+.info .container .contacts-list li::before {
   content: "";
   display: inline-block;
   width: 60px;
@@ -786,27 +791,27 @@ footer .footer__copyright {
   background-color: #B92770;
   background-position: center;
 }
-.contacts .container .contacts-list li:nth-child(1)::before {
+.info .container .contacts-list li:nth-child(1)::before {
   background-image: url("../img/contacts/location.svg");
 }
-.contacts .container .contacts-list li:nth-child(2)::before {
+.info .container .contacts-list li:nth-child(2)::before {
   background-image: url("../img/contacts/clock.svg");
 }
-.contacts .container .contacts-list li:nth-child(3)::before {
+.info .container .contacts-list li:nth-child(3)::before {
   background-image: url("../img/contacts/email.svg");
 }
-.contacts .container .contacts-list li:nth-child(4)::before {
+.info .container .contacts-list li:nth-child(4)::before {
   background-image: url("../img/contacts/call.svg");
 }
 
 .contact-form .container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 40px;
 }
 .contact-form .container img {
-  width: 627px;
-  height: 700px;
+  width: 500px;
 }
 .contact-form .container .contact-form__form {
   display: flex;
@@ -814,6 +819,32 @@ footer .footer__copyright {
   align-items: stretch;
   justify-content: space-between;
   margin: 0;
+}
+.contact-form .container .contact-form__form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form .container .contact-form__form .form-group label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.contact-form .container .contact-form__form .form-group input, .contact-form .container .contact-form__form .form-group textarea {
+  height: 44px;
+  margin-bottom: 0;
+}
+.contact-form .container .contact-form__form .form-group #message {
+  height: 120px;
+  margin-bottom: 10px;
+}
+.contact-form .container .contact-form__form .form-group .error-message {
+  font-size: 14px;
+  color: red;
+  margin: 10px 0;
+}
+.contact-form .container .contact-form__form .form-message {
+  font-size: 16px;
+  color: green;
 }
 .contact-form .container .contact-form__form .title {
   font-size: 25px;
@@ -845,9 +876,22 @@ footer .footer__copyright {
   padding: 18px 23px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
   width: 90px;
 }
 
+@media (max-width: 768px) {
+  .info .container .contacts-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-form .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-form .container img {
+    width: 100%;
+  }
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -856,7 +900,6 @@ footer .footer__copyright {
 * {
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
-  outline: 1px solid red;
 }
 
 @media (max-width: 1024px) {

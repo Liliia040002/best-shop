@@ -12,9 +12,7 @@
     "moduleResolution": "bundler",          
     "allowJs": false,                    
   },
-  "include": [
-    "src/ts/main.ts"
-  ],
+  "include": ["src/ts/**/*.ts"],
   "exclude": [
     "node_modules",
     "dist"

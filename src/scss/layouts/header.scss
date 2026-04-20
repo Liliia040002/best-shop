@@ -1,5 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
+@use '../components/buttons' as *;
 
 header {
    
@@ -40,18 +41,8 @@ nav {
 
     @include header__menu;
 
-     .menu__list {
-         display: flex;
-         justify-content: center ;
-         align-items: center;
-         gap: 20px;
-
-         .menu__item {
-             list-style-type: none;
-         }
-     }
     
-    ul {
+    .menu__list  {
         display: flex;
         justify-content: center ;
         align-items: center;
@@ -59,6 +50,7 @@ nav {
 
         .menu__item {
             list-style-type: none;
+            margin-top: 20px;
 
             a {
                 text-decoration: none;

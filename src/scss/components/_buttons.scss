@@ -1,7 +1,7 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
 
-a {
+.button {
   font: {
     size: 18px;
     weight: bold;
@@ -11,6 +11,7 @@ a {
   background-color: $primary-color;
   border: none;
   padding: 18px 23px;
+  margin-top: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 

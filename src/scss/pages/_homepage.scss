@@ -1,5 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
+@use '../components/buttons' as *;
 
   .section__heading {
     @include section__heading;
@@ -210,7 +211,7 @@
                 margin: 0;
             }
 
-            button {
+            .button {
                 @include button;
                 margin-top: 30px;
         }

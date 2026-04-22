@@ -72,6 +72,10 @@ main {
         }
     }
 
+    .filters--hidden .filters__box, .filters--hidden .filters__actions, .filters__box--hidden{
+    display: none;
+    }   
+
     .navigation {
         margin-bottom: 40px;
         display: flex;
@@ -104,7 +108,10 @@ main {
                 color: $descriptions-color;
                 outline: none;
                 cursor: pointer;
+
+
             }
+            
         }
 
         .searching {

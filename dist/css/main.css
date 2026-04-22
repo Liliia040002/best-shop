@@ -444,6 +444,9 @@ main .filters__btn {
   font-size: 13px;
   padding: 10px 18px;
 }
+main .filters--hidden .filters__box, main .filters--hidden .filters__actions, main .filters__box--hidden {
+  display: none;
+}
 main .navigation {
   margin-bottom: 40px;
   display: flex;

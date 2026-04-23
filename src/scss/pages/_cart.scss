@@ -1,0 +1,291 @@
+// .cart__content {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+
+//     .cart__table {
+//         display: grid;
+//         grid-template-columns: 1fr 2fr  1fr 2fr 1fr 1fr;
+//         gap: 20px;
+//     }
+// }
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../components/buttons' as *;
+
+.hero-banner--cart {
+     @include hero-banner;
+     background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/cart/banner-image.jpg') no-repeat center;
+            background-size: cover;
+}
+.cart {
+    padding: 60px 0;
+   
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__table {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: 120px 2fr 1fr 1fr 1fr 80px;
+        align-items: center;
+        background-color: $descriptions-color;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 18px 24px;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 120px 2fr 1fr 1fr 1fr 80px;
+        align-items: center;
+        padding: 25px 24px;
+        border-bottom: 1px solid #d61b72;
+        color: #111;
+    }
+
+    &__col {
+        &--image img {
+            width: 70px;
+            height: auto;
+            display: block;
+        }
+
+        &--name,
+        &--price,
+        &--total {
+            font-size: 16px;
+            font-weight: 600;
+            
+        }
+
+        &--quantity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        &--delete {
+            display: flex;
+            justify-content: center;
+                }
+    }
+
+    &__quantity-btn {
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        font-weight: 700;
+        cursor: pointer;
+        color: #111;
+        line-height: 1;
+    }
+
+    &__quantity-value {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111;
+    }
+
+    &__delete-btn {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+
+        svg {
+            width: 18px;
+            height: 20px;
+            display: block;
+            color: $primary-color;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 24px;
+        background-color: #d61b72;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__summary {
+        background-color: #55514d;
+        padding: 30px 25px;
+        min-width: 340px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #d61b72;
+
+        &--total {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    &__summary-label,
+    &__summary-value {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__checkout-btn {
+        margin-top: 10px;
+        padding: 14px 20px;
+        background-color: #d61b72;
+        color: #fff;
+        border: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        width: 140px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cart {
+
+        &__header,
+        &__item {
+            grid-template-columns: 80px 2fr 1fr 1fr 1fr 60px;
+            padding: 15px;
+        }
+
+        &__col--image img {
+            width: 60px;
+        }
+
+        &__bottom {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__summary {
+            width: 100%;
+        }
+
+        &__actions {
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .cart {
+
+        &__header {
+            display: none; 
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        &__col {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &--image {
+                justify-content: center;
+
+                img {
+                    width: 80px;
+                }
+            }
+
+            &--name {
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            &--price::before {
+                content: "Price:";
+                font-weight: 500;
+            }
+
+            &--quantity::before {
+                content: "Qty:";
+                font-weight: 500;
+            }
+
+            &--total::before {
+                content: "Total:";
+                font-weight: 500;
+            }
+
+            &--delete {
+                justify-content: flex-end;
+            }
+        }
+
+        &__bottom {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        &__actions {
+            flex-direction: column;
+            gap: 10px;
+
+            .cart__button {
+                width: 100%;
+            }
+        }
+
+        &__summary {
+            width: 100%;
+        }
+
+        &__checkout-btn {
+            width: 100%;
+        }
+    }
+}

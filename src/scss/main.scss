@@ -12,12 +12,12 @@
 @use './layouts/header';
 @use './layouts/footer';
 
-@use './pages/about';
-@use './pages/cart';
-@use './pages/catalog';
-@use './pages/product-details';
 @use './pages/homepage';
+@use './pages/about';
+@use './pages/catalog';
 @use './pages/contact.scss';
+@use './pages/cart';
+@use './pages/product-details';
 
 .container {
     max-width: 1200px;

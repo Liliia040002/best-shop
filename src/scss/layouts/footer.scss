@@ -1,6 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
-// @use '../base/fonts' as *;
+
 
 
 footer {
@@ -28,7 +28,6 @@ footer {
     li {
         list-style-type: none;
         display: flex;
-        // align-items: center;
         gap: 10px;
         width: 20%;
         font-size: 15px;

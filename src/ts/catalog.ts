@@ -350,15 +350,15 @@ async function fetchProducts(): Promise<void> {
 }
 
 function initControls(): void {
-    const sizeSelect = document.querySelector('#filter-size') as HTMLSelectElement | null;
-    const colorSelect = document.querySelector('#filter-color') as HTMLSelectElement | null;
-    const categorySelect = document.querySelector('#filter-category') as HTMLSelectElement | null;
-    const salesCheckbox = document.querySelector('#filter-sales') as HTMLInputElement | null;
-    const sortSelect = document.querySelector('#sort-by') as HTMLSelectElement | null;
-    const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
-    const clearButton = document.querySelector('#clear-filters') as HTMLButtonElement | null;
-    const hideButton = document.querySelector('#hide-filters') as HTMLButtonElement | null;
-    const filtersBox = document.querySelector('.filters__box') as HTMLElement | null;
+    const sizeSelect = document.querySelector<HTMLSelectElement>('#filter-size');
+    const colorSelect = document.querySelector<HTMLSelectElement>('#filter-color');
+    const categorySelect = document.querySelector<HTMLSelectElement>('#filter-category');
+    const salesCheckbox = document.querySelector<HTMLInputElement>('#filter-sales');
+    const sortSelect = document.querySelector<HTMLSelectElement>('#sort-by');
+    const searchInput = document.querySelector<HTMLInputElement>('#search-input');
+    const clearButton = document.querySelector<HTMLButtonElement>('#clear-filters');
+    const hideButton = document.querySelector<HTMLButtonElement>('#hide-filters');
+    const filtersBox = document.querySelector<HTMLElement>('.filters__box');
 
     sizeSelect?.addEventListener('change', handleControlChange);
     colorSelect?.addEventListener('change', handleControlChange);
@@ -404,12 +404,12 @@ function handleControlChange(): void {
 }
 
 function applyFiltersAndSort(): void {
-    const sizeValue = (document.querySelector('#filter-size') as HTMLSelectElement | null)?.value || '';
-    const colorValue = (document.querySelector('#filter-color') as HTMLSelectElement | null)?.value || '';
-    const categoryValue = (document.querySelector('#filter-category') as HTMLSelectElement | null)?.value || '';
-    const salesValue = (document.querySelector('#filter-sales') as HTMLInputElement | null)?.checked || false;
-    const sortValue = (document.querySelector('#sort-by') as HTMLSelectElement | null)?.value || 'default';
-    const searchValue = ((document.querySelector('#search-input') as HTMLInputElement | null)?.value || '')
+    const sizeValue = document.querySelector<HTMLSelectElement>('#filter-size')?.value ?? '';
+    const colorValue = document.querySelector<HTMLSelectElement>('#filter-color')?.value ?? '';
+    const categoryValue = document.querySelector<HTMLSelectElement>('#filter-category')?.value ?? '';
+    const salesValue = document.querySelector<HTMLInputElement>('#filter-sales')?.checked ?? false;
+    const sortValue = document.querySelector<HTMLSelectElement>('#sort-by')?.value ?? 'default';
+    const searchValue = document.querySelector<HTMLInputElement>('#search-input')?.value ?? ''
         .trim()
         .toLowerCase();
 
@@ -469,7 +469,7 @@ function sortProducts(sortValue: string): void {
 }
 
 function renderProducts(): void {
-    const container = document.querySelector('.products__list') as HTMLElement | null;
+    const container = document.querySelector<HTMLElement>('.products__list');
     if (!container) return;
 
     container.innerHTML = '';
@@ -517,7 +517,7 @@ function addProductClickEvents(): void {
 }
 
 function updatePagination(): void {
-    const pagination = document.querySelector('.pagination') as HTMLElement | null;
+    const pagination = document.querySelector<HTMLElement>('.pagination');
     if (!pagination) return;
 
     pagination.innerHTML = '';
@@ -598,7 +598,7 @@ function addPaginationEvents(): void {
 }
 
 function updateShowingText(): void {
-    const message = document.querySelector('.pagination-message') as HTMLElement | null;
+    const message = document.querySelector<HTMLElement>('.pagination-message');
     if (!message) return;
 
     if (filteredProducts.length === 0) {
@@ -617,7 +617,7 @@ function getTotalPages(): number {
 }
 
 function renderRandomSets(): void {
-    const sidebar = document.querySelector('.sidebar__list') as HTMLElement | null;
+    const sidebar = document.querySelector<HTMLElement>('.sidebar__list');
     if (!sidebar) return;
 
     const sets = allProducts.filter((product) => product.category === 'luggage sets');

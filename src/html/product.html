@@ -24,7 +24,10 @@
         </div>
        <div class="header__logo"><a href="/src/index.html"><img src="../img/icons/logo.png" alt="logo"></a></div>
         <div class="header__acount">
-           <img src="../img/icons/shopping-cart.svg" alt="shopping-cart">
+           <div class="cart-icon">
+              <img src="../img/icons/shopping-cart.svg" alt="cart">
+              <span class="cart-counter"></span>
+            </div>
             <img src="../img/icons/user.svg" alt="user">
 
         </div>
@@ -46,21 +49,21 @@
       
       <div class="product-hero__gallery">
         <div class="product-hero__main-image">
-          <img src="../src/img/product-details/product-main.png" alt="Global Explorer Max Comfort Suitcase Pro">
+          <img class="product-image" src="../img/product/suitcase-small-card-1.png" alt="Global Explorer Max Comfort Suitcase Pro">
         </div>
 
         <div class="product-hero__thumbnails">
           <div class="product-hero__thumb">
-            <img src="../src/img/product-details/product-thumb-1.png" alt="Suitcase view 1">
+            <img src="../img/product/suitcase-small-2.png" alt="Suitcase view 1">
           </div>
           <div class="product-hero__thumb">
-            <img src="../src/img/product-details/product-thumb-2.png" alt="Suitcase view 2">
+            <img src="../img/product/suitcase-small-4.png" alt="Suitcase view 2">
           </div>
           <div class="product-hero__thumb">
-            <img src="../src/img/product-details/product-thumb-3.png" alt="Suitcase view 3">
+            <img src="../img/product/yellow_open1.png" alt="Suitcase view 3">
           </div>
           <div class="product-hero__thumb">
-            <img src="../src/img/product-details/product-thumb-4.png" alt="Suitcase view 4">
+            <img src="../img/product/suitcase-small-card-1.png" alt="Suitcase view 4">
           </div>
         </div>
       </div>
@@ -123,9 +126,9 @@
 
         <div class="product-hero__actions">
           <div class="product-hero__quantity">
-            <button type="button" class="product-hero__qty-btn">-</button>
-            <input type="number" value="1" min="1">
-            <button type="button" class="product-hero__qty-btn">+</button>
+            <button type="button" class="product-hero__qty-btn" id="qty-minus">-</button>
+            <input id="qty-input" type="number" value="1" min="1">
+            <button type="button" class="product-hero__qty-btn" id="qty-plus">+</button>
           </div>
 
           <button class="product-hero__cart-btn" type="button">Add To Cart</button>
@@ -195,7 +198,7 @@
 
             <div class="review-card">
               <div class="review-card__avatar">
-                <img src="../src/img/product-details/reviewer.png" alt="Ella Harper">
+                <img src="../img/product/review-customer.png" alt="Ella Harper">
               </div>
 
               <div class="review-card__body">
@@ -274,27 +277,27 @@
             <h3 class="section__title">You May Also Like</h3>
             <hr>
         </div>
-            <div class="products__list">
+            <div class="products__list product-related-list">
                 <div class="product">
-                    <img src="../src/img/homepage/suitcase-sky.png" alt="suitcase-sky">
+                    <img src="../img/homepage/suitcase-sky.png" alt="suitcase-sky">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="../src/img/homepage/suitcase-dark-blue.png" alt="suitcase-dark-blue">
+                    <img src="../img/homepage/suitcase-dark-blue.png" alt="suitcase-dark-blue">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="../src/img/homepage/suitcase-hand-grey.png" alt="suitcase-hand-grey">
+                    <img src="../img/homepage/suitcase-hand-grey.png" alt="suitcase-hand-grey">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
                 </div>
                 <div class="product">
-                    <img src="../src/img/homepage/suitcase-small-yellow.png" alt="suitcase-small-yellow">
+                    <img src="../img/homepage/suitcase-small-yellow.png" alt="suitcase-small-yellow">
                     <h3>Product Name</h3>
                     <span>$99.99</span>
                     <button>View Product</button>
@@ -373,5 +376,9 @@
     </div>
     <div class="footer__copyright">© Copyright 2025</div>
 </footer>
+
+    <script type="module" src="../../dist/js/main.js"></script>
+        <script type="module" src="../../dist/js/product.js"></script>
+
 </body>
 </html>

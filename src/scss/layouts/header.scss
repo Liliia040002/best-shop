@@ -66,4 +66,28 @@ nav {
     }
 }
 }
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  background-color: #b92770;
+  color: #fff;
+  font-size: 12px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
 }

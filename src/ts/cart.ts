@@ -1,0 +1,162 @@
+import {
+  getCart,
+  saveCart,
+  clearCart,
+  updateCartCounter,
+} from './modules/cartStorage.js';
+
+import { CartItem } from './modules/types.js';
+
+const SHIPPING_PRICE = 30;
+const DISCOUNT_LIMIT = 3000;
+const DISCOUNT_PERCENT = 0.1;
+
+function initCartPage(): void {
+  renderCart();
+
+  const clearBtn = document.querySelector('.cart__button--clear') as HTMLButtonElement | null;
+  const checkoutBtn = document.querySelector('.cart__checkout-btn') as HTMLButtonElement | null;
+  const continueBtn = document.querySelector('.cart__button--continue') as HTMLAnchorElement | null;
+
+  continueBtn?.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.href = '/src/html/catalog.html';
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    clearCart();
+    renderCart('Your cart is empty. Use the catalog to add new items.');
+  });
+
+  checkoutBtn?.addEventListener('click', () => {
+    clearCart();
+    renderCart('Thank you for your purchase.');
+  });
+}
+
+function renderCart(messageText?: string): void {
+  const cart = getCart();
+  const table = document.querySelector('.cart__table') as HTMLElement | null;
+  const bottom = document.querySelector('.cart__bottom') as HTMLElement | null;
+
+  if (!table || !bottom) return;
+
+  table.querySelectorAll('.cart__item, .cart__empty-message').forEach((item) => item.remove());
+
+  if (cart.length === 0) {
+    const message = document.createElement('p');
+    message.className = 'cart__empty-message';
+    message.textContent = messageText ?? 'Your cart is empty. Use the catalog to add new items.';
+
+    table.append(message);
+    bottom.style.display = 'none';
+    updateCartCounter();
+    return;
+  }
+
+  bottom.style.display = '';
+
+  cart.forEach((item, index) => {
+    table.append(createCartItem(item, index));
+  });
+
+  renderSummary(cart);
+  updateCartCounter();
+}
+
+function createCartItem(item: CartItem, index: number): HTMLElement {
+  const row = document.createElement('div');
+  row.className = 'cart__item';
+
+  row.innerHTML = `
+    <div class="cart__col cart__col--image">
+      <img src="${item.imageUrl}" alt="${item.name}">
+    </div>
+
+    <div class="cart__col cart__col--name">
+      ${item.name}
+      <span class="cart__item-details">Size: ${item.size}, Color: ${item.color}</span>
+    </div>
+
+    <div class="cart__col cart__col--price">$${item.price}</div>
+
+    <div class="cart__col cart__col--quantity">
+      <button class="cart__quantity-btn" data-action="minus" type="button">−</button>
+      <span class="cart__quantity-value">${item.quantity}</span>
+      <button class="cart__quantity-btn" data-action="plus" type="button">+</button>
+    </div>
+
+    <div class="cart__col cart__col--total">$${item.price * item.quantity}</div>
+
+    <div class="cart__col cart__col--delete">
+      <button class="cart__delete-btn" type="button" aria-label="Delete product">×</button>
+    </div>
+  `;
+
+  const minusBtn = row.querySelector('[data-action="minus"]') as HTMLButtonElement | null;
+  const plusBtn = row.querySelector('[data-action="plus"]') as HTMLButtonElement | null;
+  const deleteBtn = row.querySelector('.cart__delete-btn') as HTMLButtonElement | null;
+
+  minusBtn?.addEventListener('click', () => {
+    updateQuantity(index, -1);
+  });
+
+  plusBtn?.addEventListener('click', () => {
+    updateQuantity(index, 1);
+  });
+
+  deleteBtn?.addEventListener('click', () => {
+    removeItem(index);
+  });
+
+  return row;
+}
+
+function updateQuantity(index: number, change: number): void {
+  const cart = getCart();
+
+  cart[index].quantity += change;
+
+  if (cart[index].quantity < 1) {
+    cart.splice(index, 1);
+  }
+
+  saveCart(cart);
+  renderCart();
+}
+
+function removeItem(index: number): void {
+  const cart = getCart();
+
+  cart.splice(index, 1);
+
+  saveCart(cart);
+  renderCart();
+}
+
+function renderSummary(cart: CartItem[]): void {
+  const summaryValues = document.querySelectorAll('.cart__summary-value');
+
+  const subtotal = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  const discount = subtotal > DISCOUNT_LIMIT ? subtotal * DISCOUNT_PERCENT : 0;
+  const total = subtotal - discount + SHIPPING_PRICE;
+
+  if (summaryValues[0]) {
+    summaryValues[0].textContent = `$${subtotal.toFixed(2)}`;
+  }
+
+  if (summaryValues[1]) {
+    summaryValues[1].textContent = `$${SHIPPING_PRICE.toFixed(2)}`;
+  }
+
+  if (summaryValues[2]) {
+    summaryValues[2].textContent = `$${total.toFixed(2)}`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCartPage();
+});

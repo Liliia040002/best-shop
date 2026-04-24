@@ -1,650 +1,249 @@
-
-// type Product = {
-//     id: string;
-//     name: string;
-//     price: number;
-//     imageUrl: string;
-//     category: string;
-//     color: string;
-//     size: string;
-//     salesStatus: boolean;
-//     rating: number;
-//     popularity: number;
-// };
-
-// let allProducts: Product[] = [];
-// let filteredProducts: Product[] = [];
-
-// let currentPage = 1;
-// const itemsPerPage = 12;
-
-// async function fetchProducts(): Promise<void> {
-//     try {
-//         const response = await fetch('../assets/data.json');
-
-//         if (!response.ok) {
-//             throw new Error(`HTTP error: ${response.status}`);
-//         }
-
-//         const data = await response.json();
-//         allProducts = data.data;
-//         filteredProducts = [...allProducts];
-
-//         initControls();
-//         applyFiltersAndSort();
-//     } catch (error) {
-//         console.error('Error fetching products:', error);
-//     }
-// }
-
-// function initControls(): void {
-//     const sizeSelect = document.querySelector('#filter-size') as HTMLSelectElement | null;
-//     const colorSelect = document.querySelector('#filter-color') as HTMLSelectElement | null;
-//     const categorySelect = document.querySelector('#filter-category') as HTMLSelectElement | null;
-//     const salesCheckbox = document.querySelector('#filter-sales') as HTMLInputElement | null;
-//     const sortSelect = document.querySelector('#sort-by') as HTMLSelectElement | null;
-//     const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
-//     const clearButton = document.querySelector('#clear-filters') as HTMLButtonElement | null;
-//     const hideButton = document.querySelector('#hide-filters') as HTMLButtonElement | null;
-//     const filtersBlock = document.querySelector('.filters') as HTMLElement | null;
-
-//     sizeSelect?.addEventListener('change', handleControlChange);
-//     colorSelect?.addEventListener('change', handleControlChange);
-//     categorySelect?.addEventListener('change', handleControlChange);
-//     salesCheckbox?.addEventListener('change', handleControlChange);
-//     sortSelect?.addEventListener('change', handleControlChange);
-
-//     searchInput?.addEventListener('input', () => {
-//         currentPage = 1;
-//         applyFiltersAndSort();
-//     });
-
-//     clearButton?.addEventListener('click', (event) => {
-//         event.preventDefault();
-
-//         if (sizeSelect) sizeSelect.value = '';
-//         if (colorSelect) colorSelect.value = '';
-//         if (categorySelect) categorySelect.value = '';
-//         if (salesCheckbox) salesCheckbox.checked = false;
-//         if (sortSelect) sortSelect.value = 'default';
-//         if (searchInput) searchInput.value = '';
-
-//         currentPage = 1;
-//         applyFiltersAndSort();
-//     });
-
-//    const hideBtn = document.getElementById('hide-filters') as HTMLButtonElement;
-// const filtersBox = document.querySelector('.filters__box') as HTMLElement;
-
-// hideBtn?.addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     filtersBox.classList.toggle('filters__box--hidden');
-
-//     hideBtn.textContent = filtersBox.classList.contains('filters__box--hidden')
-//         ? 'Show Filters'
-//         : 'Hide Filters';
-// });
-// }
-
-// function handleControlChange(): void {
-//     currentPage = 1;
-//     applyFiltersAndSort();
-// }
-
-// function applyFiltersAndSort(): void {
-//     const sizeValue = (document.querySelector('#filter-size') as HTMLSelectElement | null)?.value || '';
-//     const colorValue = (document.querySelector('#filter-color') as HTMLSelectElement | null)?.value || '';
-//     const categoryValue = (document.querySelector('#filter-category') as HTMLSelectElement | null)?.value || '';
-//     const salesValue = (document.querySelector('#filter-sales') as HTMLInputElement | null)?.checked || false;
-//     const sortValue = (document.querySelector('#sort-by') as HTMLSelectElement | null)?.value || 'default';
-//     const searchValue = ((document.querySelector('#search-input') as HTMLInputElement | null)?.value || '').trim().toLowerCase();
-
-//     filteredProducts = allProducts.filter((product) => {
-//         const matchesSize = !sizeValue || product.size === sizeValue;
-//         const matchesColor = !colorValue || product.color === colorValue;
-//         const matchesCategory = !categoryValue || product.category === categoryValue;
-//         const matchesSales = !salesValue || product.salesStatus === true;
-//         const matchesSearch = !searchValue || product.name.toLowerCase().includes(searchValue);
-
-//         return matchesSize && matchesColor && matchesCategory && matchesSales && matchesSearch;
-//     });
-
-//     sortProducts(sortValue);
-
-//     if (currentPage > getTotalPages()) {
-//         currentPage = 1;
-//     }
-
-//     renderProducts();
-//     updatePagination();
-//     updateShowingText();
-// }
-
-// function sortProducts(sortValue: string): void {
-//     switch (sortValue) {
-//         case 'price-low':
-//             filteredProducts.sort((a, b) => a.price - b.price);
-//             break;
-//         case 'price-high':
-//             filteredProducts.sort((a, b) => b.price - a.price);
-//             break;
-//         case 'popularity':
-//             filteredProducts.sort((a, b) => b.popularity - a.popularity);
-//             break;
-//         case 'rating':
-//             filteredProducts.sort((a, b) => b.rating - a.rating);
-//             break;
-//         default:
-//             filteredProducts = [...filteredProducts];
-//     }
-// }
-
-// function renderProducts(): void {
-//     const container = document.querySelector('.products__list') as HTMLElement | null;
-//     if (!container) return;
-
-//     container.innerHTML = '';
-
-//     if (filteredProducts.length === 0) {
-//         container.innerHTML = `<p class="products__empty">No products found.</p>`;
-//         return;
-//     }
-
-//     const startIndex = (currentPage - 1) * itemsPerPage;
-//     const endIndex = startIndex + itemsPerPage;
-//     const productsToShow = filteredProducts.slice(startIndex, endIndex);
-
-//     for (const product of productsToShow) {
-//         container.innerHTML += `
-//             <div class="product" data-id="${product.id}">
-//                 <img src="${product.imageUrl}" alt="${product.name}">
-//                 <h3 class="product__title">${product.name}</h3>
-//                 <span class="product__price">${product.price} uah</span>
-//                 <button class="product__button" data-id="${product.id}">Add to Cart</button>
-//             </div>
-//         `;
-//     }
-
-//     addProductClickEvents();
-// }
-
-// function addProductClickEvents(): void {
-//     const cards = document.querySelectorAll('.product');
-
-//     cards.forEach((card) => {
-//         card.addEventListener('click', (event) => {
-//             const target = event.target as HTMLElement;
-
-//             if (target.classList.contains('product__button')) {
-//                 return;
-//             }
-
-//             const productId = (card as HTMLElement).dataset.id;
-//             if (!productId) return;
-
-//             window.location.href = `../html/product-details.html?id=${productId}`;
-//         });
-//     });
-// }
-
-// function updatePagination(): void {
-//     const pagination = document.querySelector('.pagination') as HTMLElement | null;
-//     if (!pagination) return;
-
-//     pagination.innerHTML = '';
-
-//     const totalPages = getTotalPages();
-
-//     if (totalPages <= 1) return;
-
-//     if (currentPage > 1) {
-//         pagination.innerHTML += `<button class="pagination__prev">Previous</button>`;
-//     }
-
-//     for (let i = 1; i <= totalPages; i++) {
-//         pagination.innerHTML += `
-//             <button
-//                 class="pagination__item ${i === currentPage ? 'pagination__item--active' : ''}"
-//                 data-page="${i}"
-//             >
-//                 ${i}
-//             </button>
-//         `;
-//     }
-
-//     if (currentPage < totalPages) {
-//         pagination.innerHTML += `<button class="pagination__next">Next</button>`;
-//     }
-
-//     addPaginationEvents();
-// }
-
-// function addPaginationEvents(): void {
-//     const pageButtons = document.querySelectorAll('[data-page]');
-//     const prevButton = document.querySelector('.pagination__prev');
-//     const nextButton = document.querySelector('.pagination__next');
-
-//     pageButtons.forEach((button) => {
-//         button.addEventListener('click', (event) => {
-//             const page = Number((event.currentTarget as HTMLElement).dataset.page);
-//             currentPage = page;
-//             renderProducts();
-//             updatePagination();
-//             updateShowingText();
-//         });
-//     });
-
-//     prevButton?.addEventListener('click', () => {
-//         currentPage--;
-//         renderProducts();
-//         updatePagination();
-//         updateShowingText();
-//     });
-
-//     nextButton?.addEventListener('click', () => {
-//         currentPage++;
-//         renderProducts();
-//         updatePagination();
-//         updateShowingText();
-//     });
-// }
-
-// function updateShowingText(): void {
-//     const message = document.querySelector('.pagination-message') as HTMLElement | null;
-//     if (!message) return;
-
-//     if (filteredProducts.length === 0) {
-//         message.textContent = 'Showing 0 of 0 results';
-//         return;
-//     }
-
-//     const start = (currentPage - 1) * itemsPerPage + 1;
-//     const end = Math.min(currentPage * itemsPerPage, filteredProducts.length);
-
-//     message.textContent = `Showing ${start}–${end} of ${filteredProducts.length} results`;
-// }
-
-// function getTotalPages(): number {
-//     return Math.ceil(filteredProducts.length / itemsPerPage);
-// }
-
-// fetchProducts();
-
-// function renderRandomSets(): void {
-//     const sidebar = document.querySelector('.sidebar__list') as HTMLElement;
-
-//     if (!sidebar) return;
-
-//     // 1. фільтр тільки luggage sets
-//     const sets = allProducts.filter(product => product.category === 'luggage sets');
-
-//     // 2. перемішування
-//     const shuffled = [...sets].sort(() => 0.5 - Math.random());
-
-//     // 3. беремо 4
-//     const randomSets = shuffled.slice(0, 4);
-
-//     sidebar.innerHTML = '';
-
-//     for (const item of randomSets) {
-//         sidebar.innerHTML += `
-//             <li class="sidebar__item">
-//                 <a href="../html/product-details.html?id=${item.id}" class="sidebar__link">
-//                     <img class="sidebar__image" src="${item.imageUrl}" alt="${item.name}">
-//                     <div class="sidebar__content">
-//                         <p class="category-description">${item.name}</p>
-//                         <span class="rating">${'★'.repeat(Math.round(item.rating))}</span>
-//                         <span class="price">${item.price} uah</span>
-//                     </div>
-//                 </a>
-//             </li>
-//         `;
-//     }
-// }
-
-// // renderRandomSets();
-
-type Product = {
-    id: string;
-    name: string;
-    price: number;
-    imageUrl: string;
-    category: string;
-    color: string;
-    size: string;
-    salesStatus: boolean;
-    rating: number;
-    popularity: number;
-};
-
-type ProductsResponse = {
-    data: Product[];
-};
-
-let allProducts: Product[] = [];
+import { getProducts } from './modules/api.js';
+import { createProductCard } from './modules/productCard.js';
+import { Product } from './modules/types.js';
+import { openProductPage } from './modules/helpers.js';
+
+let products: Product[] = [];
 let filteredProducts: Product[] = [];
 
 let currentPage = 1;
-const itemsPerPage = 12;
+const productsPerPage = 12;
 
-async function fetchProducts(): Promise<void> {
-    try {
-        const response = await fetch('../assets/data.json');
+async function initCatalog(): Promise<void> {
+  products = await getProducts();
+  filteredProducts = [...products];
 
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        const data: ProductsResponse = await response.json();
-
-        allProducts = data.data;
-        filteredProducts = [...allProducts];
-
-        initControls();
-        applyFiltersAndSort();
-        renderRandomSets();
-    } catch (error) {
-        console.error('Error fetching products:', error);
-    }
+  applyFiltersAndSorting();
+  initFilters();
+  renderTopBestSets();
 }
 
-function initControls(): void {
-    const sizeSelect = document.querySelector<HTMLSelectElement>('#filter-size');
-    const colorSelect = document.querySelector<HTMLSelectElement>('#filter-color');
-    const categorySelect = document.querySelector<HTMLSelectElement>('#filter-category');
-    const salesCheckbox = document.querySelector<HTMLInputElement>('#filter-sales');
-    const sortSelect = document.querySelector<HTMLSelectElement>('#sort-by');
-    const searchInput = document.querySelector<HTMLInputElement>('#search-input');
-    const clearButton = document.querySelector<HTMLButtonElement>('#clear-filters');
-    const hideButton = document.querySelector<HTMLButtonElement>('#hide-filters');
-    const filtersBox = document.querySelector<HTMLElement>('.filters__box');
+function renderProducts(items: Product[]): void {
+  const container = document.querySelector('.products__list') as HTMLElement | null;
 
-    sizeSelect?.addEventListener('change', handleControlChange);
-    colorSelect?.addEventListener('change', handleControlChange);
-    categorySelect?.addEventListener('change', handleControlChange);
-    salesCheckbox?.addEventListener('change', handleControlChange);
-    sortSelect?.addEventListener('change', handleControlChange);
+  if (!container) return;
 
-    searchInput?.addEventListener('input', () => {
-        currentPage = 1;
-        applyFiltersAndSort();
-    });
+  container.innerHTML = '';
 
-    clearButton?.addEventListener('click', (event) => {
-        event.preventDefault();
+  const start = (currentPage - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const currentProducts = items.slice(start, end);
 
-        if (sizeSelect) sizeSelect.value = '';
-        if (colorSelect) colorSelect.value = '';
-        if (categorySelect) categorySelect.value = '';
-        if (salesCheckbox) salesCheckbox.checked = false;
-        if (sortSelect) sortSelect.value = 'default';
-        if (searchInput) searchInput.value = '';
+  currentProducts.forEach((product) => {
+    container.append(createProductCard(product));
+  });
 
-        currentPage = 1;
-        applyFiltersAndSort();
-    });
-
-    hideButton?.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        if (!filtersBox) return;
-
-        filtersBox.classList.toggle('filters__box--hidden');
-
-        hideButton.textContent = filtersBox.classList.contains('filters__box--hidden')
-            ? 'Show Filters'
-            : 'Hide Filters';
-    });
+  renderPagination(items.length);
+  renderPaginationMessage(items.length);
 }
 
-function handleControlChange(): void {
-    currentPage = 1;
-    applyFiltersAndSort();
-}
+function renderPagination(totalItems: number): void {
+  const pagination = document.querySelector('.pagination') as HTMLElement | null;
 
-function applyFiltersAndSort(): void {
-    const sizeValue = document.querySelector<HTMLSelectElement>('#filter-size')?.value ?? '';
-    const colorValue = document.querySelector<HTMLSelectElement>('#filter-color')?.value ?? '';
-    const categoryValue = document.querySelector<HTMLSelectElement>('#filter-category')?.value ?? '';
-    const salesValue = document.querySelector<HTMLInputElement>('#filter-sales')?.checked ?? false;
-    const sortValue = document.querySelector<HTMLSelectElement>('#sort-by')?.value ?? 'default';
-    const searchValue = document.querySelector<HTMLInputElement>('#search-input')?.value ?? ''
-        .trim()
-        .toLowerCase();
+  if (!pagination) return;
 
-    filteredProducts = allProducts.filter((product) => {
-        const matchesSize =
-            !sizeValue || product.size.toLowerCase().includes(sizeValue.toLowerCase());
+  const totalPages = Math.ceil(totalItems / productsPerPage);
 
-        const matchesColor =
-            !colorValue || product.color.toLowerCase() === colorValue.toLowerCase();
-
-        const matchesCategory =
-            !categoryValue || product.category.toLowerCase() === categoryValue.toLowerCase();
-
-        const matchesSales =
-            !salesValue || product.salesStatus === true;
-
-        const matchesSearch =
-            !searchValue || product.name.toLowerCase().includes(searchValue);
-
-        return (
-            matchesSize &&
-            matchesColor &&
-            matchesCategory &&
-            matchesSales &&
-            matchesSearch
-        );
-    });
-
-    sortProducts(sortValue);
-
-    if (currentPage > getTotalPages()) {
-        currentPage = 1;
-    }
-
-    renderProducts();
-    updatePagination();
-    updateShowingText();
-}
-
-function sortProducts(sortValue: string): void {
-    switch (sortValue) {
-        case 'price-low':
-            filteredProducts.sort((a, b) => a.price - b.price);
-            break;
-        case 'price-high':
-            filteredProducts.sort((a, b) => b.price - a.price);
-            break;
-        case 'popularity':
-            filteredProducts.sort((a, b) => b.popularity - a.popularity);
-            break;
-        case 'rating':
-            filteredProducts.sort((a, b) => b.rating - a.rating);
-            break;
-        default:
-            filteredProducts = [...filteredProducts];
-    }
-}
-
-function renderProducts(): void {
-    const container = document.querySelector<HTMLElement>('.products__list');
-    if (!container) return;
-
-    container.innerHTML = '';
-
-    if (filteredProducts.length === 0) {
-        container.innerHTML = `<p class="products__empty">No products found.</p>`;
-        return;
-    }
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const productsToShow = filteredProducts.slice(startIndex, endIndex);
-
-    for (const product of productsToShow) {
-        container.innerHTML += `
-            <div class="product" data-id="${product.id}">
-                <img src="${product.imageUrl}" alt="${product.name}">
-                <h3 class="product__title">${product.name}</h3>
-                <span class="product__price">${product.price} uah</span>
-                <button class="product__button" type="button" data-id="${product.id}">Add to Cart</button>
-            </div>
-        `;
-    }
-
-    addProductClickEvents();
-}
-
-function addProductClickEvents(): void {
-    const cards = document.querySelectorAll('.product');
-
-    cards.forEach((card) => {
-        card.addEventListener('click', (event) => {
-            const target = event.target as HTMLElement;
-
-            if (target.classList.contains('product__button')) {
-                return;
-            }
-
-            const productId = (card as HTMLElement).dataset.id;
-            if (!productId) return;
-
-            window.location.href = `../html/product-details.html?id=${productId}`;
-        });
-    });
-}
-
-function updatePagination(): void {
-    const pagination = document.querySelector<HTMLElement>('.pagination');
-    if (!pagination) return;
-
+  if (totalPages <= 1) {
     pagination.innerHTML = '';
+    return;
+  }
 
-    const totalPages = getTotalPages();
+  pagination.innerHTML = `
+    <button class="pagination__btn" id="pagination-prev" type="button">Previous</button>
+    <span class="pagination__page">Page ${currentPage} of ${totalPages}</span>
+    <button class="pagination__btn" id="pagination-next" type="button">Next</button>
+  `;
 
-    if (totalPages <= 1) return;
+  const prevBtn = document.querySelector('#pagination-prev') as HTMLButtonElement | null;
+  const nextBtn = document.querySelector('#pagination-next') as HTMLButtonElement | null;
 
-    if (currentPage > 1) {
-        pagination.innerHTML += `
-            <a href="#" class="pagination__prev">Previous</a>
-        `;
-    }
+  if (prevBtn) {
+    prevBtn.disabled = currentPage === 1;
 
-    for (let i = 1; i <= totalPages; i++) {
-        pagination.innerHTML += `
-            <a
-                href="#"
-                class="pagination__item ${i === currentPage ? 'pagination__item--active' : ''}"
-                data-page="${i}"
-            >
-                ${i}
-            </a>
-        `;
-    }
-
-    if (currentPage < totalPages) {
-        pagination.innerHTML += `
-            <a href="#" class="pagination__next">
-                Next <span>></span>
-            </a>
-        `;
-    }
-
-    addPaginationEvents();
-}
-
-function addPaginationEvents(): void {
-    const pageButtons = document.querySelectorAll('.pagination__item');
-    const prevButton = document.querySelector('.pagination__prev');
-    const nextButton = document.querySelector('.pagination__next');
-
-    pageButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-
-            const page = Number((event.currentTarget as HTMLElement).dataset.page);
-            currentPage = page;
-
-            renderProducts();
-            updatePagination();
-            updateShowingText();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    });
-
-    prevButton?.addEventListener('click', (event) => {
-        event.preventDefault();
-
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
         currentPage--;
-
-        renderProducts();
-        updatePagination();
-        updateShowingText();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderProducts(filteredProducts);
+      }
     });
+  }
 
-    nextButton?.addEventListener('click', (event) => {
-        event.preventDefault();
+  if (nextBtn) {
+    nextBtn.disabled = currentPage === totalPages;
 
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages) {
         currentPage++;
-
-        renderProducts();
-        updatePagination();
-        updateShowingText();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderProducts(filteredProducts);
+      }
     });
+  }
 }
 
-function updateShowingText(): void {
-    const message = document.querySelector<HTMLElement>('.pagination-message');
-    if (!message) return;
+function renderPaginationMessage(totalItems: number): void {
+  const message = document.querySelector('.pagination-message') as HTMLElement | null;
 
-    if (filteredProducts.length === 0) {
-        message.textContent = 'Showing 0 of 0 results';
-        return;
-    }
+  if (!message) return;
 
-    const start = (currentPage - 1) * itemsPerPage + 1;
-    const end = Math.min(currentPage * itemsPerPage, filteredProducts.length);
+  if (totalItems === 0) {
+    message.textContent = 'Showing 0 Results';
+    return;
+  }
 
-    message.textContent = `Showing ${start}–${end} of ${filteredProducts.length} results`;
+  const start = (currentPage - 1) * productsPerPage + 1;
+  const end = Math.min(currentPage * productsPerPage, totalItems);
+
+  message.textContent = `Showing ${start}-${end} of ${totalItems} Results`;
 }
 
-function getTotalPages(): number {
-    return Math.ceil(filteredProducts.length / itemsPerPage);
+function initFilters(): void {
+  const sizeSelect = document.querySelector('#filter-size') as HTMLSelectElement | null;
+  const colorSelect = document.querySelector('#filter-color') as HTMLSelectElement | null;
+  const categorySelect = document.querySelector('#filter-category') as HTMLSelectElement | null;
+  const salesCheckbox = document.querySelector('#filter-sales') as HTMLInputElement | null;
+  const sortSelect = document.querySelector('#sort-by') as HTMLSelectElement | null;
+  const clearBtn = document.querySelector('#clear-filters') as HTMLButtonElement | null;
+  const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
+
+  sizeSelect?.addEventListener('change', applyFiltersAndSorting);
+  colorSelect?.addEventListener('change', applyFiltersAndSorting);
+  categorySelect?.addEventListener('change', applyFiltersAndSorting);
+  salesCheckbox?.addEventListener('change', applyFiltersAndSorting);
+  sortSelect?.addEventListener('change', applyFiltersAndSorting);
+  searchInput?.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    searchProduct();
+  }
+});
+
+  clearBtn?.addEventListener('click', () => {
+    if (sizeSelect) sizeSelect.value = '';
+    if (colorSelect) colorSelect.value = '';
+    if (categorySelect) categorySelect.value = '';
+    if (salesCheckbox) salesCheckbox.checked = false;
+    if (sortSelect) sortSelect.value = 'default';
+
+    currentPage = 1;
+    applyFiltersAndSorting();
+  });
 }
 
-function renderRandomSets(): void {
-    const sidebar = document.querySelector<HTMLElement>('.sidebar__list');
-    if (!sidebar) return;
+function applyFiltersAndSorting(): void {
+  const sizeValue = (document.querySelector('#filter-size') as HTMLSelectElement | null)?.value ?? '';
+  const colorValue = (document.querySelector('#filter-color') as HTMLSelectElement | null)?.value ?? '';
+  const categoryValue = (document.querySelector('#filter-category') as HTMLSelectElement | null)?.value ?? '';
+  const salesValue = (document.querySelector('#filter-sales') as HTMLInputElement | null)?.checked ?? false;
+  const sortValue = (document.querySelector('#sort-by') as HTMLSelectElement | null)?.value ?? 'default';
 
-    const sets = allProducts.filter((product) => product.category === 'luggage sets');
-    const shuffled = [...sets].sort(() => 0.5 - Math.random());
-    const randomSets = shuffled.slice(0, Math.min(4, shuffled.length));
+  // 🔹 1. Фільтрація
+  let result = products.filter((product) => {
+    const matchesSize = sizeValue === '' || product.size === sizeValue;
+    const matchesColor = colorValue === '' || product.color === colorValue;
+    const matchesCategory = categoryValue === '' || product.category === categoryValue;
+    const matchesSales = !salesValue || product.salesStatus === true;
 
-    sidebar.innerHTML = '';
+    return matchesSize && matchesColor && matchesCategory && matchesSales;
+  });
 
-    if (randomSets.length === 0) {
-        sidebar.innerHTML = `<li class="sidebar__item">No sets found.</li>`;
-        return;
-    }
+  // 🔹 2. Сортування (на копії!)
+  switch (sortValue) {
+    case 'price-low':
+      result = [...result].sort((a, b) => a.price - b.price);
+      break;
 
-    for (const item of randomSets) {
-        sidebar.innerHTML += `
-            <li class="sidebar__item">
-                <a href="../html/product-details.html?id=${item.id}" class="sidebar__link">
-                    <img class="sidebar__image" src="${item.imageUrl}" alt="${item.name}">
-                    <div class="sidebar__content">
-                        <p class="category-description">${item.name}</p>
-                        <span class="rating">${'★'.repeat(Math.round(item.rating))}</span>
-                        <span class="price">${item.price} uah</span>
-                    </div>
-                </a>
-            </li>
-        `;
-    }
+    case 'price-high':
+      result = [...result].sort((a, b) => b.price - a.price);
+      break;
+
+    case 'popularity':
+      result = [...result].sort((a, b) => b.popularity - a.popularity);
+      break;
+
+    case 'rating':
+      result = [...result].sort((a, b) => b.rating - a.rating);
+      break;
+
+    default:
+      break;
+  }
+
+  filteredProducts = result;
+
+  currentPage = 1;
+  renderProducts(filteredProducts);
 }
 
-fetchProducts();
+function searchProduct(): void {
+  const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
+
+  if (!searchInput) return;
+
+  const searchValue = searchInput.value.trim().toLowerCase();
+
+  if (searchValue === '') return;
+
+  const foundProduct = products.find((product) =>
+    product.name.toLowerCase().includes(searchValue)
+  );
+
+  if (foundProduct) {
+    openProductPage(foundProduct.id);
+  } else {
+    showProductNotFoundPopup();
+  }
+}
+
+function showProductNotFoundPopup(): void {
+  const popup = document.createElement('div');
+  popup.className = 'product-popup';
+  popup.textContent = 'Product not found';
+
+  document.body.append(popup);
+
+  setTimeout(() => {
+    popup.remove();
+  }, 2500);
+}
+
+function getRandomProducts(items: Product[], count: number): Product[] {
+  return [...items]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count);
+}
+
+function renderTopBestSets(): void {
+  const sidebar = document.querySelector('.sidebar__list') as HTMLElement | null;
+
+  if (!sidebar) return;
+
+  const suitcaseSets = products.filter((product) => 
+    product.category === 'luggage sets'
+  );
+
+  const randomSets = getRandomProducts(suitcaseSets, 3);
+
+  sidebar.innerHTML = '';
+
+  randomSets.forEach((product) => {
+    const item = document.createElement('li');
+    item.className = 'sidebar__item';
+
+    item.innerHTML = `
+      <a href="product.html?id=${product.id}" class="sidebar__link">
+        <img class="sidebar__image" src="${product.imageUrl}" alt="${product.name}">
+        <div class="sidebar__content">
+          <p class="category-description">${product.name}</p>
+          <span class="rating">★ ${product.rating}</span>
+          <span class="price">$${product.price}</span>
+        </div>
+      </a>
+    `;
+
+    sidebar.append(item);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCatalog();
+});

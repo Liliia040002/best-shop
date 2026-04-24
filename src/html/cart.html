@@ -24,7 +24,10 @@
         </div>
        <div class="header__logo"><a href="/src/index.html"><img src="../img/icons/logo.png" alt="logo"></a></div>
         <div class="header__acount">
-           <img src="../img/icons/shopping-cart.svg" alt="shopping-cart">
+            <div class="cart-icon">
+              <img src="../img/icons/shopping-cart.svg" alt="cart">
+              <span class="cart-counter"></span>
+            </div>
             <img src="../img/icons/user.svg" alt="user">
 
         </div>
@@ -60,7 +63,7 @@
                     <div class="cart__col cart__col--delete">Delete</div>
                 </div>
 
-                <div class="cart__item">
+                <!-- <div class="cart__item">
                     <div class="cart__col cart__col--image">
                         <img src="../src/img/cart/nomad-haven.png" alt="Nomad Haven suitcase">
                     </div>
@@ -100,7 +103,6 @@
                     <div class="cart__col cart__col--total">$690</div>
                     <div class="cart__col cart__col--delete">
                         <button class="cart__delete-btn" type="button" aria-label="Delete product">
-                            <!-- <img src="../src/img/icons/trash.svg" alt="Delete"> -->
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
                                 <g fill="#b92770" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                     <g transform="scale(10.66667,10.66667)">
@@ -137,7 +139,7 @@
                             </svg>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="cart__bottom">
@@ -242,4 +244,7 @@
     <div class="footer__copyright">© Copyright 2025</div>
 </footer>
 </body>
+
+<script type="module" src="../../dist/js/main.js"></script>
+<script type="module" src="../../dist/js/cart.js"></script>
 </html>

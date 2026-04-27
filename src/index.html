@@ -24,10 +24,10 @@
         </div>
        <div class="header__logo"><a href="index.html"><img src="../src/img/icons/logo.png" alt="logo"></a></div>
         <div class="header__acount">
-            <div class="cart-icon">
-              <img src="img/icons/shopping-cart.svg" alt="cart">
-              <span class="cart-counter"></span>
-            </div>
+            <a href="/src/html/cart.html" class="cart-icon">
+                <img src="img/icons/shopping-cart.svg" alt="cart">
+                <span class="cart-counter"></span>
+            </a>
             <img src="img/icons/user.svg" alt="user">
 
         </div>
@@ -82,29 +82,27 @@
     </section>
     <section class="suitcases">
         <div class="container">
-            <div class="section__heading">
-                <h2 class="section__title">Travel suitcases</h2>
-                <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
-            </div>
-            <div class="products__items">
+             <div class="section__heading">
+                    <h2 class="section__title">Travel Suitcases</h2>
+                    <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+                </div>
+           <div class="products__items">
                 <div class="item">
                     <p class="item__heading">Duis vestibulum elit vel neque.</p>
                     <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
+
                 <div class="item">
-                   <p class="item__heading">Neque vestibulum elit nequvel.</p>
-                   <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="item__heading">Neque vestibulum elit nequvel.</p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
+
                 <div class="item">
                     <p class="item__heading">Elituis stibulum elit velneque.</p>
                     <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-                <div class="item">
-                  <p class="item__heading">Vel vestibulum elit tuvel euqen.</p>
-                  <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>    
             </div>
-        </div>
+                        </div>
     </section>
     <section class="products products--selected">
       <div class="container">
@@ -112,7 +110,7 @@
                     <h2 class="section__title">Selected Products</h2>
                     <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
                 </div>
-                <div class="products__list">
+                <div class="products__list products__list--selected">
                     <div class="product">
                         <img src="../src/img/homepage/suitcase-red.png" alt="suitcase-red">
                         <h3>Product Name</h3>
@@ -159,7 +157,7 @@
             <h2 class="section__title">New Products Arrival</h2>
             <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
         </div>
-            <div class="products__list">
+            <div class="products__list products__list--new">
                 <div class="product">
                     <img src="../src/img/homepage/suitcase-sky.png" alt="suitcase-sky">
                     <h3>Product Name</h3>
@@ -235,7 +233,7 @@
        <div class="container">
    
             <ul class="about">
-                <li class="contacts__heading">About Us</li>
+                <li class="contacts__heading"><a href="/src/html/about.html">About Us</a></li>
                 <li>Organisation</li>
                 <li>Partners</li>
                 <li>Clients</li>
@@ -268,7 +266,7 @@
             </ul>
        
             <ul class="contact-us">
-                <li class="contacts__heading">Contact Us</li>
+                <li class="contacts__heading"><a href="/src/html/contact.html">Contact Us</a></li>
                 <li>
                     Bendum dolor eu varius. Morbi fermentum velitsodales 
                     egetonec. volutpat orci. Sed ipsum felis, tristique
@@ -292,8 +290,8 @@
     <div class="footer__copyright">© Copyright 2025</div>
 </footer>
 
-<script type="module" src="../../dist/js/catalog.js"></script>
-<script type="module" src="../../dist/js/main.js"></script>
+<script type="module" src="../dist/js/home.js"></script>
+<script type="module" src="../dist/js/main.js"></script>
 
 </body>
 </html>

@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputs = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input, textarea");
     const formMessage = form.querySelector(".form-message") as HTMLParagraphElement;
 
-    // 🔹 Email validation
+   
     function isValidEmail(email: string): boolean {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // 🔹 Validate field
+  
     function validateField(field: HTMLInputElement | HTMLTextAreaElement): boolean {
         const group = field.parentElement as HTMLElement;
         const error = group.querySelector(".error-message") as HTMLParagraphElement;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     }
 
-    // 🔹 Real-time validation
+
     inputs.forEach((field) => {
         field.addEventListener("input", () => {
             validateField(field);

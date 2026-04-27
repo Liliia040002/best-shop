@@ -1,27 +1,3 @@
-// import { Product } from './types.js';
-
-// export async function getProducts(): Promise<Product[]> {
-//     const response = await fetch('../assets/data.json');
-//     if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//     }
-//     return response.json();
-// }
-
-// import { Product } from './types.js';
-
-// export async function getProducts(): Promise<Product[]> {
-//   const response = await fetch('/src/assets/data.json');
-
-//   if (!response.ok) {
-//     throw new Error('Products loading error');
-//   }
-
-//   const data = await response.json();
-
-//   return data; // 👈 ВАЖЛИВО
-// }
-
 import { Product } from './types.js';
 
 type ProductsResponse =

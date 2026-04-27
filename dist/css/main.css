@@ -8,7 +8,6 @@
   background-color: #B92770;
   border: none;
   padding: 18px 23px;
-  margin-top: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -205,6 +204,10 @@ footer .footer__contacts .container .contacts__heading {
   font-weight: bold;
   margin-bottom: 10px;
 }
+footer .footer__contacts .container .contacts__heading a {
+  text-decoration: none;
+  color: #000000;
+}
 footer .footer__copyright {
   text-align: center;
   margin-top: 20px;
@@ -309,9 +312,9 @@ footer .footer__copyright {
   align-items: center;
   gap: 50px;
   height: 400px;
+  padding: 50px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/banner.png") no-repeat center;
   background-size: cover;
-  padding: 50px;
 }
 .banner .container .banner__offer .banner__discount {
   font-size: 223px;
@@ -322,7 +325,6 @@ footer .footer__copyright {
 }
 .banner .container .text {
   font-size: 20px;
-  font-weight: normal;
   color: #fff;
   margin-bottom: 20px;
 }
@@ -330,8 +332,7 @@ footer .footer__copyright {
   font-size: 40px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 30px;
-  margin-top: 0;
+  margin: 0 0 30px;
 }
 .banner .container button {
   font-size: 18px;
@@ -356,9 +357,9 @@ footer .footer__copyright {
 .products .container .products__list {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
 }
 .products .container .products__list .product {
+  width: calc((100% - 40px) / 3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -390,13 +391,21 @@ footer .footer__copyright {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 30px;
-  margin-top: 15px;
   padding: 10px 25px;
   font-size: 17px;
 }
 
+.products__items .item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.products__items .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
 .suitcases {
-  margin: 0 0 100px 0;
+  margin-bottom: 100px;
 }
 .suitcases .products__items {
   display: flex;
@@ -411,33 +420,51 @@ footer .footer__copyright {
 }
 .suitcases .products__items .text {
   font-size: 19px;
-  font-weight: normal;
   color: #fff;
 }
 .suitcases .products__items .item {
-  height: 500px;
+  position: relative;
+  overflow: hidden;
+  height: 470px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.suitcases .products__items .item::before, .suitcases .products__items .item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-size: cover;
-  padding: 30px;
+  background-position: center;
+  transition: opacity 0.8s ease;
+  z-index: 0;
 }
-.suitcases .products__items .item:nth-child(1) {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-1.png") no-repeat center;
+.suitcases .products__items .item::before {
+  background-image: var(--bg-current);
+  opacity: 1;
 }
-.suitcases .products__items .item:nth-child(2) {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-2.png") no-repeat center;
+.suitcases .products__items .item::after {
+  background-image: var(--bg-next);
+  opacity: 0;
 }
-.suitcases .products__items .item:nth-child(3) {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live-3.png") no-repeat center;
+.suitcases .products__items .item.item--fade::after {
+  opacity: 1;
 }
-.suitcases .products__items .item:nth-child(4) {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/homepage/suitcase-real-live.png") no-repeat center;
+.suitcases .products__items .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+.suitcases .products__items .item > * {
+  position: relative;
+  z-index: 1;
+  color: #fff;
 }
 
 .hero .hero__banner {
   height: 100vh;
-  background-color: #E7E8E9;
+  background-color: #e7e8e9;
 }
 .hero .hero__banner .container {
   display: flex;
@@ -454,9 +481,7 @@ footer .footer__copyright {
 }
 .hero .hero__banner .container .text {
   font-size: 17px;
-  font-weight: normal;
   color: #504E4A;
-  margin: 0;
 }
 .hero .hero__banner .container .button {
   font-size: 18px;
@@ -468,20 +493,14 @@ footer .footer__copyright {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 30px;
-  margin-top: 30px;
 }
 .hero .hero__welcoming {
   transform: translateY(-70px);
   display: flex;
-  flex-direction: row;
-  background-color: #ffffff;
+  background-color: #fff;
   box-shadow: 0px 20px 80px #cacccf;
 }
 .hero .hero__welcoming .welcoming__card {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  text-align: left;
   padding: 50px;
   width: 50%;
 }
@@ -495,29 +514,10 @@ footer .footer__copyright {
   height: 80px;
   border-radius: 50%;
 }
-.hero .hero__welcoming .welcoming__card .welcoming__card-author h4 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000000;
-  margin: 10px 0 0 0;
-}
-.hero .hero__welcoming .welcoming__card .welcoming__card-author .text {
-  font-size: 17px;
-  font-weight: normal;
-  color: #504E4A;
-  margin: 0;
-}
 .hero .hero__welcoming .welcoming__card h3 {
   font-size: 40px;
   font-weight: 700;
-  color: #000000;
-  margin: 20px 0 30px 0;
-}
-.hero .hero__welcoming .welcoming__card .text {
-  font-size: 17px;
-  font-weight: normal;
-  color: #504E4A;
-  margin: 0;
+  margin: 20px 0 30px;
 }
 .hero .hero__welcoming .welcoming__card-discount {
   width: 50%;
@@ -526,16 +526,8 @@ footer .footer__copyright {
 }
 .hero .hero__welcoming .welcoming__card-discount .text {
   font-size: 20px;
-  font-weight: normal;
   color: #fff;
   margin-bottom: 20px;
-}
-.hero .hero__welcoming .welcoming__card-discount h3 {
-  font-size: 40px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 30px;
-  margin-top: 0;
 }
 .hero .hero__welcoming .welcoming__card-discount button {
   font-size: 18px;
@@ -548,74 +540,22 @@ footer .footer__copyright {
   transition: background-color 0.3s ease;
   margin-top: 30px;
 }
-
-@media (max-width: 1024px) {
-  .hero__banner img {
-    width: 60%;
-  }
+.hero .hero__welcoming .welcoming__card-discount h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 30px;
 }
 @media (max-width: 768px) {
-  .hero .hero__banner {
-    height: 600px;
-  }
-  .hero .hero__banner .container {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .hero .hero__banner .container div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero .hero__banner .container div h1 {
-    font-size: 40px;
-  }
-  .hero .hero__banner .container div .text {
-    font-size: 16px;
-  }
-  .hero .hero__banner .container div button {
-    font-size: 16px;
-    margin-top: 20px;
-  }
-  .hero .hero__banner .container img {
-    width: 100%;
-    height: auto;
-  }
-  .hero .container .hero__welcoming {
-    flex-direction: column;
-  }
-  .hero .container .hero__welcoming .welcoming__card {
-    width: 100%;
-  }
-  .hero .container .hero__welcoming .welcoming__card-discount {
-    width: 100%;
-  }
-  .suitcases .products__items {
+  .hero .suitcases .products__items {
     flex-direction: column;
     align-items: center;
   }
-  .suitcases .products__items .item {
+  .hero .suitcases .products__items .item {
     width: 50%;
-    background-size: cover;
-  }
-  .products__list {
-    flex-wrap: wrap;
-  }
-  .banner .container {
-    height: 300px;
-  }
-  .banner .container .banner__offer .banner__discount {
-    font-size: 100px;
-  }
-  .banner .container .text {
-    font-size: 14px;
-  }
-  .banner .container h3 {
-    font-size: 30px;
-    margin-bottom: 5px;
   }
 }
+
 .hero-banner {
   padding: 50px 50px;
 }

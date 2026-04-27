@@ -150,6 +150,11 @@ footer {
         .contacts__heading {
             font-weight: bold;
             margin-bottom: 10px;
+
+            a {
+            text-decoration: none;
+            color: $paragraph-color;
+            }
         }
     }
 
@@ -178,6 +183,8 @@ footer {
        
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+
+    
 
 
         .about {
@@ -213,6 +220,8 @@ footer {
             li {
                 flex-direction: column;
                 justify-content: flex-start;
+
+                
             }
 
             li::before {

@@ -3,11 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form__form");
     const inputs = form.querySelectorAll("input, textarea");
     const formMessage = form.querySelector(".form-message");
-    // 🔹 Email validation
     function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-    // 🔹 Validate field
     function validateField(field) {
         const group = field.parentElement;
         const error = group.querySelector(".error-message");
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         field.classList.remove("error");
         return true;
     }
-    // 🔹 Real-time validation
     inputs.forEach((field) => {
         field.addEventListener("input", () => {
             validateField(field);

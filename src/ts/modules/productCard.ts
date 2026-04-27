@@ -14,8 +14,7 @@ export function createProductCard(product: Product): HTMLElement {
     <button class="product__button" type="button">Add to Cart</button>
   `;
 
-  const button = card.querySelector('.product__button') as HTMLButtonElement | null;
-
+const button = card.querySelector<HTMLButtonElement>('.product__button');
   card.addEventListener('click', () => {
     openProductPage(product.id);
   });

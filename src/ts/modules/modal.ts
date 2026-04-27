@@ -1,15 +1,15 @@
 export function initLoginModal(): void {
-  const accountIcon = document.querySelector('.account-icon') as HTMLButtonElement | null;
-  const modal = document.querySelector('.login-modal') as HTMLElement | null;
-  const closeBtn = document.querySelector('.login-modal__close') as HTMLButtonElement | null;
-  const form = document.querySelector('.login-modal__form') as HTMLFormElement | null;
+ const accountIcon = document.querySelector<HTMLButtonElement>('.account-icon');
+const modal = document.querySelector<HTMLElement>('.login-modal');
+const closeBtn = document.querySelector<HTMLButtonElement>('.login-modal__close');
+const form = document.querySelector<HTMLFormElement>('.login-modal__form');
 
-  const emailInput = document.querySelector('#login-email') as HTMLInputElement | null;
-  const passwordInput = document.querySelector('#login-password') as HTMLInputElement | null;
-  const togglePassword = document.querySelector('.login-modal__toggle') as HTMLButtonElement | null;
+const emailInput = document.querySelector<HTMLInputElement>('#login-email');
+const passwordInput = document.querySelector<HTMLInputElement>('#login-password');
+const togglePassword = document.querySelector<HTMLButtonElement>('.login-modal__toggle');
 
-  const emailError = document.querySelector('#email-error') as HTMLElement | null;
-  const passwordError = document.querySelector('#password-error') as HTMLElement | null;
+const emailError = document.querySelector<HTMLElement>('#email-error');
+const passwordError = document.querySelector<HTMLElement>('#password-error');
 
   if (!accountIcon || !modal || !form || !emailInput || !passwordInput) return;
 

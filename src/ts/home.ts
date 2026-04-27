@@ -19,99 +19,37 @@ async function initHomePage(): Promise<void> {
 }
 
 function renderSelectedProducts(products: Product[]): void {
-  const container = document.querySelector('.products__list--selected') as HTMLElement | null;
+const selectedContainer = document.querySelector<HTMLElement>('.products__list--selected');
 
-  if (!container) return;
+  if (!selectedContainer) return;
 
   const selectedProducts = products
     .filter((product) => product.blocks?.includes('Selected Products'))
     .slice(0, 4);
 
-  container.innerHTML = '';
+  selectedContainer.innerHTML = '';
 
   selectedProducts.forEach((product) => {
-    container.append(createProductCard(product));
+    selectedContainer.append(createProductCard(product));
   });
 }
 
 function renderNewProducts(products: Product[]): void {
-  const container = document.querySelector('.products__list--new') as HTMLElement | null;
+const newContainer = document.querySelector<HTMLElement>('.products__list--new');
 
-  if (!container) return;
+  if (!newContainer) return;
 
   const newProducts = products
     .filter((product) => product.blocks?.includes('New Products Arrival'))
     .slice(0, 4);
 
-  container.innerHTML = '';
+  newContainer.innerHTML = '';
 
   newProducts.forEach((product) => {
-    container.append(createProductCard(product));
+    newContainer.append(createProductCard(product));
   });
 }
 
-
-// function initSuitcaseBackgroundSlider(): void {
-//   const items = document.querySelectorAll('.item');
-
-//   const images = [
-//     '/src/img/homepage/suitcase-real-live-1.png',
-//     '/src/img/homepage/suitcase-real-live-2.png',
-//     '/src/img/homepage/suitcase-real-live-3.png',
-//     '/src/img/homepage/suitcase-real-live.png',
-//   ];
-
-//   items.forEach((item) => {
-//     let index = 0;
-//     let startX = 0;
-
-//     function setBackground(): void {
-//       (item as HTMLElement).style.backgroundImage = `
-//         linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-//         url(${images[index]})
-//       `;
-//     }
-
-//     function changeSlide(direction = 1): void {
-//       index = (index + direction + images.length) % images.length;
-
-//       item.classList.add('item--fade');
-
-//       setTimeout(() => {
-//         setBackground();
-//         item.classList.remove('item--fade');
-//       }, 200);
-//     }
-
-//     setBackground();
-
-//     const intervalId = window.setInterval(() => {
-//       changeSlide(1);
-//     }, 3000);
-
-//     item.addEventListener('touchstart', (e) => {
-//       const touchEvent = e as TouchEvent;
-//       startX = touchEvent.touches[0].clientX;
-//     });
-
-//     item.addEventListener('touchend', (e) => {
-//       const touchEvent = e as TouchEvent;
-
-//       const endX = touchEvent.changedTouches[0].clientX;
-//       const diff = startX - endX;
-
-//       if (Math.abs(diff) < 50) return;
-
-//       window.clearInterval(intervalId);
-
-//       if (diff > 0) {
-//         changeSlide(1);
-//       } else {
-//         changeSlide(-1);
-//       }
-//     });
-//   });
-// }
 function initSuitcaseBackgroundSlider(): void {
   const items = document.querySelectorAll('.item');
 

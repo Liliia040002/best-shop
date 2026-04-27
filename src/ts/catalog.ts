@@ -19,8 +19,8 @@ async function initCatalog(): Promise<void> {
 }
 
 function renderProducts(items: Product[]): void {
-  const container = document.querySelector('.products__list') as HTMLElement | null;
-
+const container = document.querySelector<HTMLElement>('.products__list');
+  
   if (!container) return;
 
   container.innerHTML = '';
@@ -38,7 +38,7 @@ function renderProducts(items: Product[]): void {
 }
 
 function renderPagination(totalItems: number): void {
-  const pagination = document.querySelector('.pagination') as HTMLElement | null;
+  const pagination = document.querySelector<HTMLElement>('.pagination');
 
   if (!pagination) return;
 
@@ -55,8 +55,8 @@ function renderPagination(totalItems: number): void {
     <button class="pagination__btn" id="pagination-next" type="button">Next</button>
   `;
 
-  const prevBtn = document.querySelector('#pagination-prev') as HTMLButtonElement | null;
-  const nextBtn = document.querySelector('#pagination-next') as HTMLButtonElement | null;
+    const prevBtn = document.querySelector<HTMLButtonElement>('#pagination-prev');
+    const nextBtn = document.querySelector<HTMLButtonElement>('#pagination-next');
 
   if (prevBtn) {
     prevBtn.disabled = currentPage === 1;
@@ -82,7 +82,7 @@ function renderPagination(totalItems: number): void {
 }
 
 function renderPaginationMessage(totalItems: number): void {
-  const message = document.querySelector('.pagination-message') as HTMLElement | null;
+  const message = document.querySelector<HTMLElement>('.pagination-message');
 
   if (!message) return;
 
@@ -98,13 +98,13 @@ function renderPaginationMessage(totalItems: number): void {
 }
 
 function initFilters(): void {
-  const sizeSelect = document.querySelector('#filter-size') as HTMLSelectElement | null;
-  const colorSelect = document.querySelector('#filter-color') as HTMLSelectElement | null;
-  const categorySelect = document.querySelector('#filter-category') as HTMLSelectElement | null;
-  const salesCheckbox = document.querySelector('#filter-sales') as HTMLInputElement | null;
-  const sortSelect = document.querySelector('#sort-by') as HTMLSelectElement | null;
-  const clearBtn = document.querySelector('#clear-filters') as HTMLButtonElement | null;
-  const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
+const sizeSelect = document.querySelector<HTMLSelectElement>('#filter-size');
+const colorSelect = document.querySelector<HTMLSelectElement>('#filter-color');
+const categorySelect = document.querySelector<HTMLSelectElement>('#filter-category');
+const salesCheckbox = document.querySelector<HTMLInputElement>('#filter-sales');
+const sortSelect = document.querySelector<HTMLSelectElement>('#sort-by');
+const clearBtn = document.querySelector<HTMLButtonElement>('#clear-filters');
+const searchInput = document.querySelector<HTMLInputElement>('#search-input');
 
   sizeSelect?.addEventListener('change', applyFiltersAndSorting);
   colorSelect?.addEventListener('change', applyFiltersAndSorting);
@@ -130,11 +130,11 @@ function initFilters(): void {
 }
 
 function applyFiltersAndSorting(): void {
-  const sizeValue = (document.querySelector('#filter-size') as HTMLSelectElement | null)?.value ?? '';
-  const colorValue = (document.querySelector('#filter-color') as HTMLSelectElement | null)?.value ?? '';
-  const categoryValue = (document.querySelector('#filter-category') as HTMLSelectElement | null)?.value ?? '';
-  const salesValue = (document.querySelector('#filter-sales') as HTMLInputElement | null)?.checked ?? false;
-  const sortValue = (document.querySelector('#sort-by') as HTMLSelectElement | null)?.value ?? 'default';
+const sizeValue = document.querySelector<HTMLSelectElement>('#filter-size')?.value ?? '';
+const colorValue = document.querySelector<HTMLSelectElement>('#filter-color')?.value ?? '';
+const categoryValue = document.querySelector<HTMLSelectElement>('#filter-category')?.value ?? '';
+const salesValue = document.querySelector<HTMLInputElement>('#filter-sales')?.checked ?? false;
+const sortValue = document.querySelector<HTMLSelectElement>('#sort-by')?.value ?? 'default';
 
   // 🔹 1. Фільтрація
   let result = products.filter((product) => {
@@ -175,7 +175,7 @@ function applyFiltersAndSorting(): void {
 }
 
 function searchProduct(): void {
-  const searchInput = document.querySelector('#search-input') as HTMLInputElement | null;
+  const searchInput = document.querySelector<HTMLInputElement>('#search-input');
 
   if (!searchInput) return;
 
@@ -213,7 +213,7 @@ function getRandomProducts(items: Product[], count: number): Product[] {
 }
 
 function renderTopBestSets(): void {
-  const sidebar = document.querySelector('.sidebar__list') as HTMLElement | null;
+  const sidebar = document.querySelector<HTMLElement>('.sidebar__list');
 
   if (!sidebar) return;
 

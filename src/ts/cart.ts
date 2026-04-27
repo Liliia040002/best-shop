@@ -14,9 +14,9 @@ const DISCOUNT_PERCENT = 0.1;
 function initCartPage(): void {
   renderCart();
 
-  const clearBtn = document.querySelector('.cart__button--clear') as HTMLButtonElement | null;
-  const checkoutBtn = document.querySelector('.cart__checkout-btn') as HTMLButtonElement | null;
-  const continueBtn = document.querySelector('.cart__button--continue') as HTMLAnchorElement | null;
+    const clearBtn = document.querySelector<HTMLButtonElement>('.cart__button--clear');
+    const checkoutBtn = document.querySelector<HTMLButtonElement>('.cart__checkout-btn');
+    const continueBtn = document.querySelector<HTMLAnchorElement>('.cart__button--continue');
 
   continueBtn?.addEventListener('click', (event) => {
     event.preventDefault();
@@ -36,8 +36,8 @@ function initCartPage(): void {
 
 function renderCart(messageText?: string): void {
   const cart = getCart();
-  const table = document.querySelector('.cart__table') as HTMLElement | null;
-  const bottom = document.querySelector('.cart__bottom') as HTMLElement | null;
+    const table = document.querySelector<HTMLElement>('.cart__table');
+    const bottom = document.querySelector<HTMLElement>('.cart__bottom');
 
   if (!table || !bottom) return;
 
@@ -93,9 +93,9 @@ function createCartItem(item: CartItem, index: number): HTMLElement {
     </div>
   `;
 
-  const minusBtn = row.querySelector('[data-action="minus"]') as HTMLButtonElement | null;
-  const plusBtn = row.querySelector('[data-action="plus"]') as HTMLButtonElement | null;
-  const deleteBtn = row.querySelector('.cart__delete-btn') as HTMLButtonElement | null;
+  const minusBtn = row.querySelector<HTMLButtonElement>('[data-action="minus"]');
+  const plusBtn = row.querySelector<HTMLButtonElement>('[data-action="plus"]');
+  const deleteBtn = row.querySelector<HTMLButtonElement>('.cart__delete-btn');
 
   minusBtn?.addEventListener('click', () => {
     updateQuantity(index, -1);

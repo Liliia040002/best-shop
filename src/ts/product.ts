@@ -32,10 +32,10 @@ async function initProductPage(): Promise<void> {
 }
 
 function renderProduct(product: Product): void {
-  const title = document.querySelector('.product-hero__title') as HTMLElement | null;
-  const price = document.querySelector('.product-hero__price') as HTMLElement | null;
-  const image = document.querySelector('.product-image') as HTMLImageElement | null;
-  const rating = document.querySelector('.product-hero__stars') as HTMLElement | null;
+  const title = document.querySelector<HTMLElement>('.product-hero__title');
+  const price = document.querySelector<HTMLElement>('.product-hero__price');
+  const image = document.querySelector<HTMLImageElement>('.product-image');
+  const rating = document.querySelector<HTMLElement>('.product-hero__stars');
 
   if (title) title.textContent = product.name;
   if (price) price.textContent = `$${product.price}`;
@@ -50,9 +50,9 @@ function renderProduct(product: Product): void {
 }
 
 function initQuantity(): void {
-  const minusBtn = document.querySelector('#qty-minus') as HTMLButtonElement | null;
-  const plusBtn = document.querySelector('#qty-plus') as HTMLButtonElement | null;
-  const input = document.querySelector('#qty-input') as HTMLInputElement | null;
+  const minusBtn = document.querySelector<HTMLButtonElement>('#qty-minus');
+  const plusBtn = document.querySelector<HTMLButtonElement>('#qty-plus');
+  const input = document.querySelector<HTMLInputElement>('#qty-input');
 
   if (!input) return;
 
@@ -73,7 +73,7 @@ function initQuantity(): void {
 }
 
 function initAddToCart(): void {
-  const button = document.querySelector('.product-hero__cart-btn') as HTMLButtonElement | null;
+  const button = document.querySelector<HTMLButtonElement>('.product-hero__cart-btn');
 
   button?.addEventListener('click', () => {
     if (!currentProduct) return;
@@ -101,14 +101,14 @@ function initTabs(): void {
 }
 
 function initReviewForm(): void {
-  const form = document.querySelector('.review-form') as HTMLFormElement | null;
+  const form = document.querySelector<HTMLFormElement>('.review-form');
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const textarea = form.querySelector('.review-form__textarea') as HTMLTextAreaElement | null;
-    const nameInput = form.querySelector('input[type="text"]') as HTMLInputElement | null;
-    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement | null;
+    const textarea = form.querySelector<HTMLTextAreaElement>('.review-form__textarea');
+    const nameInput = form.querySelector<HTMLInputElement>('input[type="text"]');
+    const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
 
     const isValid =
       textarea?.value.trim() &&
@@ -133,12 +133,12 @@ function showReviewMessage(isSuccess: boolean): void {
     ? 'Review submitted successfully!'
     : 'Please fill all required fields correctly.';
 
-  const form = document.querySelector('.review-form');
+  const form = document.querySelector<HTMLFormElement>('.review-form');
   form?.append(message);
 }
 
 function renderRelatedProducts(products: Product[], currentId: string): void {
-  const container = document.querySelector('.product-related-list') as HTMLElement | null;
+  const container = document.querySelector<HTMLElement>('.product-related-list');
 
   if (!container) return;
 

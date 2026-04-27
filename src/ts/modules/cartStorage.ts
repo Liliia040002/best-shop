@@ -48,7 +48,7 @@ export function getCartCount(): number {
 }
 
 export function updateCartCounter(): void {
-  const counter = document.querySelector('.cart-counter') as HTMLElement | null;
+const counter = document.querySelector<HTMLElement>('.cart-counter');
 
   if (!counter) return;
 

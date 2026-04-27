@@ -20,6 +20,17 @@ header {
         height: 37px;
     }
 
+    .account-icon {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 21px;
+            height: 21px;
+        }
+    }
+
     .header__acount {
         display: flex;
         gap: 20px;
@@ -91,3 +102,4 @@ nav {
   border-radius: 50%;
 }
 }
+

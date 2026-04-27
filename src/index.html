@@ -6,6 +6,31 @@
     <link rel="stylesheet" href="../dist/css/main.css">
     <title>Document</title>
 </head>
+<div class="login-modal">
+  <div class="login-modal__content">
+    <button class="login-modal__close" type="button">×</button>
+
+    <h2>Log In</h2>
+
+    <form class="login-modal__form">
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" placeholder="Enter email">
+
+      <p class="login-modal__error" id="email-error"></p>
+
+      <label for="login-password">Password</label>
+
+      <div class="login-modal__password">
+        <input id="login-password" type="password" placeholder="Enter password">
+        <button class="login-modal__toggle" type="button">👁</button>
+      </div>
+
+      <p class="login-modal__error" id="password-error"></p>
+
+      <button class="login-modal__submit" type="submit">Log In</button>
+    </form>
+  </div>
+</div>
 <body>
  <header class="header">
    <div class="container">
@@ -28,7 +53,9 @@
                 <img src="img/icons/shopping-cart.svg" alt="cart">
                 <span class="cart-counter"></span>
             </a>
-            <img src="img/icons/user.svg" alt="user">
+            <button class="account-icon" type="button" aria-label="Open login modal">
+                <img src="../src/img/icons/user.svg" alt="user">
+            </button>
 
         </div>
         </div>
@@ -290,8 +317,8 @@
     <div class="footer__copyright">© Copyright 2025</div>
 </footer>
 
+<script type="module" src="../dist/js/modules/modal.js"></script>
 <script type="module" src="../dist/js/home.js"></script>
 <script type="module" src="../dist/js/main.js"></script>
-
 </body>
 </html>

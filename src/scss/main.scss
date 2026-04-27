@@ -7,10 +7,10 @@
 
 @use './components/buttons';
 @use './components/forms';
-@use './components/product-card';
 
 @use './layouts/header';
 @use './layouts/footer';
+@use './layouts/modal';
 
 @use './pages/homepage';
 @use './pages/about';

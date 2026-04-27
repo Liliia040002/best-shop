@@ -12,6 +12,76 @@
   transition: background-color 0.3s ease;
 }
 
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins */
+* {
+  margin: 0;
+}
+
+/* Body */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+/* Images */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Forms */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 header {
   padding: 20px 0;
 }
@@ -26,6 +96,15 @@ header .header__top .header__media {
 }
 header .header__top .header__logo {
   height: 37px;
+}
+header .header__top .account-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+header .header__top .account-icon img {
+  width: 21px;
+  height: 21px;
 }
 header .header__top .header__acount {
   display: flex;
@@ -251,6 +330,51 @@ footer .footer__copyright {
   footer .footer__contacts .container .contacts li::before {
     margin-bottom: 10px;
   }
+}
+
+.login-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+.login-modal--active {
+  display: flex;
+}
+.login-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  background: #fff;
+}
+.login-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+.login-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-modal__password {
+  display: flex;
+}
+.login-modal__password input {
+  flex: 1;
+}
+.login-modal__error {
+  color: #b92770;
+  font-size: 14px;
+  min-height: 18px;
 }
 
 .section__heading {

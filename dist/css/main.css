@@ -83,6 +83,7 @@ table {
 }
 
 header {
+  position: sticky;
   padding: 20px 0;
   position: fixed;
   top: 0;

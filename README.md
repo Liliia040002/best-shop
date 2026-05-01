@@ -1,6 +1,14 @@
 # Project template
 # Fundamentals Project (TypeScript + SASS)
 
+Self-evalueted score 54 out of 64
+
+## 📌 Deploy link
+
+[link](https://best-shoper.netlify.app/)
+
+---
+
 ## 📌 Description
 
 This project is a frontend application built using **TypeScript** and **SASS (SCSS)**.

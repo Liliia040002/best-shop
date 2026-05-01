@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <title>Document</title>
+</head>
+<div class="login-modal">
+  <div class="login-modal__content">
+    <button class="login-modal__close" type="button">×</button>
+
+    <h2>Log In</h2>
+
+    <form class="login-modal__form">
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" placeholder="Enter email">
+
+      <p class="login-modal__error" id="email-error"></p>
+
+      <label for="login-password">Password</label>
+
+      <div class="login-modal__password">
+        <input id="login-password" type="password" placeholder="Enter password">
+        <button class="login-modal__toggle" type="button">👁</button>
+      </div>
+
+      <p class="login-modal__error" id="password-error"></p>
+
+      <button class="login-modal__submit" type="submit">Log In</button>
+    </form>
+  </div>
+</div>
+<body>
+ <header class="header">
+   <div class="container">
+        <div class="header__top">
+        <div class="header__media">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="21" height="21" viewBox="0 0 50 50">
+                <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="21" height="21" viewBox="0 0 50 50">
+                <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="21" height="21" viewBox="0 0 50 50">
+            <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+            </svg>
+
+        </div>
+       <div class="header__logo"><a href="index.html"><img src="../src/img/icons/logo.png" alt="logo"></a></div>
+        <div class="header__acount">
+            <a href="/src/html/cart.html" class="cart-icon">
+                <img src="img/icons/shopping-cart.svg" alt="cart">
+                <span class="cart-counter"></span>
+            </a>
+            <button class="account-icon" type="button" aria-label="Open login modal">
+                <img src="../src/img/icons/user.svg" alt="user">
+            </button>
+
+        </div>
+        </div>
+        <hr class="header__divider">
+        <nav class="header__menu">
+            <ul class="menu__list">
+                <li class="menu__item"><a href="index.html">Home</a></li>
+                <li class="menu__item"><a href="../src/html/catalog.html">Catalog</a></li>    
+                <li class="menu__item"><a href="../src/html/about.html">About Us</a></li>
+                <li class="menu__item"><a href="../src/html/contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+   </div>
+</header>
+
+
+<main>
+    <section class="hero">
+        <div class="hero__banner">
+            <div class="container">
+                <div>
+                    <h1>Smart Styles for Every Destination</h1>
+                    <p class="text">Phasellus risus turpis, pretium sit amet magna non, molestie ultricies enim. Nullam pulvinar felis at metus.</p>
+                    <a class="button" href="../src/html/catalog.html">View All Models</a>
+                </div>
+                <img src="../src/img/homepage/header-image.png" alt="Header">
+            </div>
+        </div>
+        <div class="container">
+        <div class="hero__welcoming">
+            <div class="welcoming__card">
+                <div class="welcoming__card-author">
+                    <img src="../src/img/homepage/CMOimage.png" alt="Lillian Bennett">
+                    <div>
+                        <h4>Lillian Bennett</h4>
+                        <p class="text">Chief Marketing Officer</p>
+                    </div>
+                </div>
+                <h3>Aliquam Faucibus  Odionecom.</h3>
+                <p class="text">Duis vestibulum elit vel neque pharetra vulputate. Quisque scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin molestie accumsan nulla sit.</p>
+                <br>
+                <p class="text">Duis vestibulum elit vel neque pharetra vulputate.</p>
+            </div>
+            <div class="welcoming__card-discount">
+                <h3>25 % Discount</h3>
+                <p class="text">Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate. </p>
+                <button class="hero__button">Get Discount</button>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="suitcases">
+        <div class="container">
+             <div class="section__heading">
+                    <h2 class="section__title">Travel Suitcases</h2>
+                    <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+                </div>
+           <div class="products__items">
+                <div class="item">
+                    <p class="item__heading">Duis vestibulum elit vel neque.</p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="item">
+                    <p class="item__heading">Neque vestibulum elit nequvel.</p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="item">
+                    <p class="item__heading">Elituis stibulum elit velneque.</p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+                        </div>
+    </section>
+    <section class="products products--selected">
+      <div class="container">
+         <div class="section__heading">
+                    <h2 class="section__title">Selected Products</h2>
+                    <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+                </div>
+                <div class="products__list products__list--selected">
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-red.png" alt="suitcase-red">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-blue.png" alt="suitcase-blue">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-pink.png" alt="suitcase-pink">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product">
+                        <img src="../src/img/homepage/suitcase-beige.png" alt="suitcase-beige">
+                        <h3>Product Name</h3>
+                        <span>$99.99</span>
+                        <button>View Product</button>
+                    </div>    
+                </div>
+      </div>
+    </section>
+    <section class="banner">
+     <div class="container">
+           <div class="banner__offer">
+            <p class="banner__discount">50%</p>
+            <p class="text">Curabitur vulputate arcu odio, ac facilisis diam.</p>
+        </div>
+        <div>
+            <h3>Offer Of the Month</h3>
+            <p class="text">Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate. </p>
+            <button class="banner__button">Get Offer Today</button>
+        </div>
+     </div>
+    </section>
+    <section class="products products--new">
+          <div class="container">
+          <div class="section__heading">
+            <h2 class="section__title">New Products Arrival</h2>
+            <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+        </div>
+            <div class="products__list products__list--new">
+                <div class="product">
+                    <img src="../src/img/homepage/suitcase-sky.png" alt="suitcase-sky">
+                    <h3>Product Name</h3>
+                    <span>$99.99</span>
+                    <button>View Product</button>
+                </div>
+                <div class="product">
+                    <img src="../src/img/homepage/suitcase-dark-blue.png" alt="suitcase-dark-blue">
+                    <h3>Product Name</h3>
+                    <span>$99.99</span>
+                    <button>View Product</button>
+                </div>
+                <div class="product">
+                    <img src="../src/img/homepage/suitcase-hand-grey.png" alt="suitcase-hand-grey">
+                    <h3>Product Name</h3>
+                    <span>$99.99</span>
+                    <button>View Product</button>
+                </div>
+                <div class="product">
+                    <img src="../src/img/homepage/suitcase-small-yellow.png" alt="suitcase-small-yellow">
+                    <h3>Product Name</h3>
+                    <span>$99.99</span>
+                    <button>View Product</button>
+                </div>    
+            </div>
+    </section>
+    <section class="testimonials">
+      <div class="container">
+          <div class="section__heading">
+            <h2 class="section__title">Our Grateful Customers</h2>
+            <p class="section__description">Duis vestibulum elit vel neque pharetra</p>
+        </div>
+            <div class="testimonials__list">
+                <div class="testimonial">
+                    <img src="/src/img/homepage/customer-1.png" alt="Ethan Wade">
+                    <p>
+                       Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut mperdiet et leo in vulputate. 
+                    </p>
+                    <span>Ethan Wade, New York</span>
+                </div>
+                <div class="testimonial">
+                    <img src="/src/img/homepage/customer-2.png" alt="Jane Reyes">
+                    <p>
+                        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    </p>
+                    <span>Jane Reyes, California</span>
+                </div>
+                <div class="testimonial">
+                    <img src="/src/img/homepage/customer-3.png" alt="Erica Banks">
+                    <p>
+                        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    </p>
+                    <span>Erica Banks, Miami</span>
+                </div>
+            </div>
+      </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__benefits">
+       <div class="container">
+         <h3>Our Benefits</h3>
+        <ul>
+            <li>Velit nisl sodales eget donec quis. volutpat orci.</li>
+            <li>Dolor eu varius. Morbi fermentum velit nisl.</li>
+            <li>Malesuada fames ac ante ipsum primis in faucibus. </li>
+            <li>Nisl sodales eget donec quis. volutpat orci. </li>
+        </ul>
+       </div>
+    </div>
+    <div class="footer__contacts">
+       <div class="container">
+   
+            <ul class="about">
+                <li class="contacts__heading"><a href="/src/html/about.html">About Us</a></li>
+                <li>Organisation</li>
+                <li>Partners</li>
+                <li>Clients</li>
+            </ul>
+    
+       
+            <ul class="links">
+                <li class="contacts__heading">Interesting Links</li>
+                <li>Photo Gallery</li>
+                <li>Our Team</li>
+                <li>Socials</li>
+            </ul>
+        
+       
+            <ul class="achievements">
+                <li class="contacts__heading">Achievements</li>
+                <li>Winning Awards</li>
+                <li>Press</li>
+                <li>Our Amazing Clients</li>
+            </ul>
+        
+            <ul class="shipping">
+                <li class="contacts__heading">Shipping Information</li>
+                <li>
+                    Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac. Ut sit amet erat nec nibh 
+                    rhoncus varius in non lorem. Donec interdum, lectus in convallis pulvinar, enim elit porta sapien, 
+                    vel finibus erat felis sed neque. Etiam aliquet neque sagittis erat tincidunt aliquam. 
+                </li>
+
+            </ul>
+       
+            <ul class="contact-us">
+                <li class="contacts__heading"><a href="/src/html/contact.html">Contact Us</a></li>
+                <li>
+                    Bendum dolor eu varius. Morbi fermentum velitsodales 
+                    egetonec. volutpat orci. Sed ipsum felis, tristique
+                    egestas et, convallis ac velitn consequat nec luctus.
+                </li>
+            </ul>
+       
+            <ul class="contacts">
+                <li>Phone: (+63) 236 6322 </li>
+                <li>Mon - Fri: 10am - 6pm <br>
+                    Sat - Sun: 10am - 6pm
+                </li>
+                <li>public@news.com</li>
+                <li>639 Jade Valley, <br>
+                    Washington Dc
+                </li>
+            </ul>
+        
+       </div>
+    </div>
+    <div class="footer__copyright">© Copyright 2025</div>
+</footer>
+
+<script type="module" src="./dist/js/modules/modal.js"></script>
+<script type="module" src="./dist/js/home.js"></script>
+<script type="module" src="./dist/js/main.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 @use '../components/buttons' as *;
 
 header {
-   
+   position: sticky;
     padding: 20px 0;
 
     .header__top {
